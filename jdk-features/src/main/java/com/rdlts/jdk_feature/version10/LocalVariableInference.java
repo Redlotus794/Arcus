@@ -42,8 +42,8 @@ public class LocalVariableInference {
         var entry = Map.entry("key", "value");
 
         // 避免的用法 - 类型不明确
-        var result = getResult(); // 返回类型不明显
-        var x = 1; // 基本类型推荐显式声明
+        var result = getResult();
+        var x = 1;
     }
 
     public static String getResult() {
