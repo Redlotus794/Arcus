@@ -2,8 +2,8 @@
 命名由来：闪之轨迹黎恩所在的7班是以运用新型战术导力器“亚克斯（アークス，ARCUS）”为名义而实验性设立的特别班。
 
 ## 项目地址
-[Arcus](https://github.com/Redlotus794/Arucs)
-
+- Github: [Arcus](https://github.com/Redlotus794/Arucs)
+- 项目架构图: [系统架构图](https://www.processon.com/diagraming/6847bf19590f390f1b036cc1)
 
 ## 背景
 本项目是一个基于多编程语言环境，实验性的项目。旨在探索和实现不同编程语言的能力。  
