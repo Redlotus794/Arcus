@@ -1,0 +1,18 @@
+image:
+  repository: bitnami/mysql
+  tag: 8.0.34  # 指定MySQL 8.0版本
+
+auth:
+  rootPassword: "root@arcus_1234"  # 设置root密码
+  database: "default_db"  # 创建默认数据库
+  username: "arcus"  # 创建默认用户
+  password: "123456"  # 设置默认用户密码
+
+primary:
+  persistence:
+    enabled: true
+    size: 8Gi  # 数据卷大小
+    storageClass: hostpath  # 修改为你的存储类名称
+
+architecture: standalone  # 单机模式，也可以选择replication(主从复制)
+

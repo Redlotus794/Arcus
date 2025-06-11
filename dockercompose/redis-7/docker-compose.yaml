@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  redis:
+    image: redis:7.0.14-alpine
+    container_name: redis-7
+    ports:
+      - "6380:6379"  # 修改为 6380:6379
+    volumes:
+      - ~/data/redis/data:/data
+      - ~/data/redis/conf/redis.conf:/etc/redis/redis.conf
+    command: redis-server /etc/redis/redis.conf --appendonly yes
+    restart: always
+    networks:
+      - redis-net
+
+networks:
+  redis-net:
+    driver: bridge
