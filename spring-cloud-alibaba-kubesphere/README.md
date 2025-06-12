@@ -8,16 +8,19 @@
 
 # 🧩 技术栈
 | Component             | Version                   | Description                          | Deployment |
-|-----------------------|---------------------------|--------------------------------------|--------------------------------------|
+|-----------------------|---------------------------|--------------------------------------|-----------------------|
 | KubeSphere            | v3.3.2                    | Container platform management tool   | Arcus基础设施 |
 | Kubernetes            | v1.32.2                   | Container orchestration engine       | Arcus基础设施 |
 | Spring Boot           | 3.2.4                     | Microservices base framework         | Spring   |
 | Spring Cloud          | 2023.0.1                  | Microservices architecture support   | Spring |
-| Spring Cloud Alibaba  | 2023.0.1.0                | Provides Nacos, Sentinel, etc.       | Spring |
+| [Spring Cloud Alibaba](https://sca.aliyun.com/en/) | 2023.0.1.0                | Provides Nacos, Sentinel, etc.       | Spring |
 | Nacos                 | 3.0.1                | Service registry & config center     | k8s/nacos |
 | Sentinel              | 1.8.6                     | Traffic control & circuit breaking   |    |
 | Gateway               | Spring Cloud Gateway      | API gateway                         |                          |
 | Load Testing Tool     | Apache JMeter / wrk / hey | Concurrency testing tools            |             |
+| MySQL | 8.0.34 | MySQL数据库 | Arcus基础设施 |
+| Redis | 7 |  |  |
+| MongoDB | 6 |  |  |
 
 # 📦 项目结构
 ```
@@ -66,11 +69,17 @@ spring-cloud-alibaba-kubesphere/
 ```shell
 kubectl create namespace arcus
 ```
+- 初始化
+
+```
+SQL : /src/main/resources/init-sql
+```
+
 - 安装 Nacos
 
 ````
-进入目录deploy，在数据库中执行 nacos-arcus-schema.sql
 kubectl apply -f nacos-arcus.yaml
+kubectl apply -f nacos-arcus-nodeport.yaml
 ````
 
 

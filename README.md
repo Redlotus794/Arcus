@@ -113,14 +113,26 @@
 
   
 
-## 技术栈使用
+## 🧩 技术栈使用
 
-根据不同项目的内容来选择不同的编程语言和技术栈。  
+Arcus 提供技术栈列表
+
+| 组件                 | 版本           |      |
+| -------------------- | -------------- | ---- |
+| Spring Cloud Gateway | 4.3 (Java 17+) |      |
+|                      |                |      |
+|                      |                |      |
+
+
+
+
+
+根据不同项目的内容会选择不同的编程语言和技术栈。  
 参考各项目的`README.md` 文件。
 
 
 
-## 项目列表
+## 🚀 项目列表
 
 - JDK Feature - [README.md](jdk-features/README.md)
 - Leetcode - [README.md](leetcode/README.md)
