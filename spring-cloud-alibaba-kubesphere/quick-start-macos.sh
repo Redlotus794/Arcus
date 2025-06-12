@@ -18,16 +18,16 @@ check_kubectl() {
 # 初始化Nacos服务
 init_nacos() {
     echo -e "${GREEN}正在初始化Nacos服务...${NC}"
-    kubectl apply -f nacos/nacos-arcus.yaml
-    kubectl apply -f nacos/nacos-arcus-nodeport.yaml
+    kubectl apply -f k8s/nacos/nacos-arcus.yaml
+    kubectl apply -f k8s/nacos/nacos-arcus-nodeport.yaml
     echo -e "${GREEN}Nacos服务初始化完成${NC}"
 }
 
 # 删除Nacos服务
 delete_nacos() {
     echo -e "${GREEN}正在删除Nacos服务...${NC}"
-    kubectl delete -f nacos/nacos-arcus-nodeport.yaml
-    kubectl delete -f nacos/nacos-arcus.yaml
+    kubectl delete -f k8s/nacos/nacos-arcus-nodeport.yaml
+    kubectl delete -f k8s/nacos/nacos-arcus.yaml
     echo -e "${GREEN}Nacos服务删除完成${NC}"
 }
 

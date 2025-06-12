@@ -43,6 +43,9 @@
   Kustomize Version: v5.5.0
   Server Version: v1.32.2
   
+  # 创建 namespace
+  > kubectl create namespace arcus
+  
   # 查看 KubeSphere 相关的 Pod 是否都在运行。可以通过下面的命令来列出 KubeSphere 命名空间中的 Pod，并检查它们的状态：
   > kubectl get pods -n kubesphere-system
   NAME                                     READY   STATUS    RESTARTS      AGE
@@ -80,9 +83,17 @@
 
 - **数据库**: 
 
-  数据库采用本地docker部署的形式，
+  数据库采用本地docker部署的形式:
+
+  ```shell
+  cd dockercompose/mysql-8
+  docker compose up -d
+  ```
+  
+  
 
   - MySQL 8.0.34 
+
   ```yaml
   mysql:
   	host: localhost
@@ -106,24 +117,25 @@
   ```
 
   - MongoDB 6
-
+  
   ```yaml
   mongodb:
   	host: localhost
   	port: 27017
   ```
-
+  
   
 
 ## 🧩 技术栈使用
 
 Arcus 提供技术栈列表
 
-| 组件                 | 版本           |      |
-| -------------------- | -------------- | ---- |
-| Spring Cloud Gateway | 4.3 (Java 17+) |      |
-|                      |                |      |
-|                      |                |      |
+| 组件                 | 版本 |      |
+| -------------------- | ---- | ---- |
+| Java                 | 21   |      |
+| Spring Cloud Gateway | 4.3  |      |
+|                      |      |      |
+|                      |      |      |
 
 根据不同项目的内容会选择不同的编程语言和技术栈。  
 参考各项目的`README.md` 文件。
