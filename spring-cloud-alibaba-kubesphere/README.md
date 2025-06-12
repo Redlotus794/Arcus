@@ -3,34 +3,37 @@
 
 # 📌 目标
 - 使用 KubeSphere 部署 Spring Cloud Alibaba 微服务架构。
-- 实现服务注册与发现（Nacos）、配置中心、网关、限流熔断等功能。
+- 实现服务注册与发现、配置中心、网关、限流熔断等功能。
 - 模拟高并发请求场景，验证系统在压力下的稳定性与性能表现。
 
 # 🧩 技术栈
-| Component             | Version                   | Description                          |
-|-----------------------|---------------------------|--------------------------------------|
-| KubeSphere            | v3.3.2                    | Container platform management tool   |
-| Kubernetes            | v1.32.2                   | Container orchestration engine       |
-| Spring Boot           | 3.2.4                     | Microservices base framework         |
-| Spring Cloud          | 2023.0.1                  | Microservices architecture support   |
-| Spring Cloud Alibaba  | 2023.0.1.0                | Provides Nacos, Sentinel, etc.       |
-| Nacos                 | 2.3.2                     | Service registry & config center     |
-| Sentinel              | 1.8.6                     | Traffic control & circuit breaking   |
-| Gateway               | Spring Cloud Gateway      | API gateway                         |
-| Load Testing Tool     | Apache JMeter / wrk / hey | Concurrency testing tools            |
+| Component             | Version                   | Description                          | Deployment |
+|-----------------------|---------------------------|--------------------------------------|--------------------------------------|
+| KubeSphere            | v3.3.2                    | Container platform management tool   | Arcus基础设施 |
+| Kubernetes            | v1.32.2                   | Container orchestration engine       | Arcus基础设施 |
+| Spring Boot           | 3.2.4                     | Microservices base framework         | Spring   |
+| Spring Cloud          | 2023.0.1                  | Microservices architecture support   | Spring |
+| Spring Cloud Alibaba  | 2023.0.1.0                | Provides Nacos, Sentinel, etc.       | Spring |
+| Nacos                 | 3.0.1                | Service registry & config center     | k8s/nacos |
+| Sentinel              | 1.8.6                     | Traffic control & circuit breaking   |    |
+| Gateway               | Spring Cloud Gateway      | API gateway                         |                          |
+| Load Testing Tool     | Apache JMeter / wrk / hey | Concurrency testing tools            |             |
 
 # 📦 项目结构
-```plaintext
+```
 spring-cloud-alibaba-kubesphere/
 ├── config-center/              # Common configuration files
 ├── service-a/                  # Example business service A
 ├── service-b/                  # Example business service B
 ├── gateway/                    # API gateway service
-├── docker/                     # Dockerfiles and build scripts
 ├── k8s/                        # Kubernetes resource definitions
-│   ├── nacos/
+│   ├── nacos/									# Nacos Standalone mode 
 │   ├── sentinel/
 │   └── services/
+├── src/                        # Java 源代码目录
+│   ├── main/
+│   		├── resources/          # 资源目录
+│						├── init-sql/       # 项目初始化sql
 ├── README.md
 └── pom.xml
 ```
@@ -44,14 +47,31 @@ spring-cloud-alibaba-kubesphere/
 - GraalVM 编译
 
 # 常用Web页和命令
-- Nacos：
+
+- 快速开始
+
+  ```shell
+  chmod 777 quick-start-macos.sh
+  ./quick-start-macos.sh 
+  ./quick-start-macos.sh delete
+  ```
+
+  
+
+- Nacos 控制台 : http://127.0.0.1:30001/
 
 # 🚀 部署步骤
+
 - 创建命名空间（已创建可以跳过）
 ```shell
 kubectl create namespace arcus
 ```
-- [安装 Nacos](kubesphere/README.md)
+- 安装 Nacos
+
+````
+进入目录deploy，在数据库中执行 nacos-arcus-schema.sql
+kubectl apply -f nacos-arcus.yaml
+````
 
 
 # 🧪 并发测试方案

@@ -1,0 +1,18 @@
+# nacos-nodeport.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: nacos-nodeport
+  namespace: arcus
+  labels:
+    app: nacos-nodeport
+spec:
+  type: NodePort
+  ports:
+    - port: 8080
+      targetPort: 8080
+      nodePort: 30001
+      protocol: TCP
+      name: console-api
+  selector:
+    app: nacos
