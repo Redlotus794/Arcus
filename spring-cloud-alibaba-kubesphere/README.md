@@ -9,7 +9,7 @@
 # 🧩 技术栈
 | Component             | Version                   | Description                          | Deployment |
 |-----------------------|---------------------------|--------------------------------------|-----------------------|
-| KubeSphere            | v3.3.2                    | Container platform management tool   | Arcus基础设施 |
+| KubeSphere            | v4.1.3                    | Container platform management tool   | Arcus基础设施 |
 | Kubernetes            | v1.32.2                   | Container orchestration engine       | Arcus基础设施 |
 | Spring Boot           | 3.2.4                     | Microservices base framework         | Spring   |
 | Spring Cloud          | 2023.0.1                  | Microservices architecture support   | Spring |

@@ -34,7 +34,7 @@
 
 - **容器编排管理**: 
 
-  - Kubesphere v3.3.2 
+  - Kubesphere v4.1.3
 
   ```shell
   # Check kubectl
@@ -74,7 +74,9 @@
   version.BuildInfo{Version:"v3.18.2", GitCommit:"04cad4610054e5d546aa5c5d9c1b1d5cf68ec1f8", GitTreeState:"clean", GoVersion:"go1.24.3"}
   ```
 
-    
+  - 
+
+  
 
 - **数据库**: 
 
@@ -122,10 +124,6 @@ Arcus 提供技术栈列表
 | Spring Cloud Gateway | 4.3 (Java 17+) |      |
 |                      |                |      |
 |                      |                |      |
-
-
-
-
 
 根据不同项目的内容会选择不同的编程语言和技术栈。  
 参考各项目的`README.md` 文件。
