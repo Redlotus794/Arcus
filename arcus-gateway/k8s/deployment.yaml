@@ -1,0 +1,69 @@
+# ================= Deployment =================
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: arcus-gateway
+  namespace: arcus
+  labels:
+    app: arcus-gateway
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: arcus-gateway
+  template:
+    metadata:
+      labels:
+        app: arcus-gateway
+    spec:
+      containers:
+        - name: arcus-gateway
+          image: arcus-gateway:lts
+          ports:
+            - containerPort: 8081
+          resources:
+            limits:
+              memory: "512Mi"
+              cpu: "500m"
+          imagePullPolicy: IfNotPresent
+
+---
+# ================= Service =================
+apiVersion: v1
+kind: Service
+metadata:
+  name: arcus-gateway
+  namespace: arcus
+  labels:
+    app: arcus-gateway
+spec:
+  type: ClusterIP
+  ports:
+    - port: 8081
+      targetPort: 8081
+      protocol: TCP
+      name: http
+  selector:
+    app: arcus-gateway
+
+---
+# ================= Ingress =================
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: arcus-ingress
+  namespace: arcus
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+    - http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: arcus-gateway
+                port:
+                  number: 8081
+  ingressClassName: nginx  # 根据实际 Ingress Controller 调整
