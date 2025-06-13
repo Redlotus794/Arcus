@@ -84,36 +84,37 @@
   数据库采用本地docker部署的形式:
 
   ```shell
-  cd dockercompose/mysql-8
+  # 示例
+  cd deploy/mysql-8
   docker compose up -d
   ```
   
   
-
+  
   - MySQL 8.0.34 
-
+  
   ```yaml
   mysql:
   	host: localhost
   	port: 3308
   ```
-
+  
   - MySQL 5.7
-
+  
   ```yaml
   mysql:
   	host: localhost
   	port: 3307
   ```
-
+  
   - Redis 7
-
+  
   ```yaml
   redis: 
   	host: localhost
   	port: 6380
   ```
-
+  
   - MongoDB 6
   
   ```yaml
@@ -128,12 +129,14 @@
   - Jenkins
 
   ```shell
-  cd helm/jenkins
-  kubectl apply -f jenkins-pvc.yaml -n jenkins
+  cd deploy/jenkins
+  kubectl apply -f jenkins-pvc.yaml -n arucs
+  kubectl apply -f jenkins-deployment.yaml -n arcus
+  kubectl apply -f jenkins-service.yaml -n arcus
   
   ```
 
-  
+  账号： arcus / 123456
 
 ## 🧩 技术栈使用
 
