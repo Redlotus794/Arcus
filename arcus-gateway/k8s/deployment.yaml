@@ -15,6 +15,8 @@ spec:
     metadata:
       labels:
         app: arcus-gateway
+      annotations:
+        last-updated: "2025-06-13T00:00:00Z"  # 更新为当前时间
     spec:
       containers:
         - name: arcus-gateway
@@ -25,7 +27,7 @@ spec:
             limits:
               memory: "512Mi"
               cpu: "500m"
-          imagePullPolicy: IfNotPresent
+          imagePullPolicy: Always
 
 ---
 # ================= Service =================
