@@ -77,8 +77,6 @@
   version.BuildInfo{Version:"v3.18.2", GitCommit:"04cad4610054e5d546aa5c5d9c1b1d5cf68ec1f8", GitTreeState:"clean", GoVersion:"go1.24.3"}
   ```
 
-  - 
-
   
 
 - **数据库**: 
@@ -124,18 +122,29 @@
   	port: 27017
   ```
   
+
+- **CI/CD**
+
+  - Jenkins
+
+  ```shell
+  cd helm/jenkins
+  kubectl apply -f jenkins-pvc.yaml -n jenkins
+  
+  ```
+
   
 
 ## 🧩 技术栈使用
 
 Arcus 提供技术栈列表
 
-| 组件                 | 版本 |      |
-| -------------------- | ---- | ---- |
-| Java                 | 21   |      |
-| Spring Cloud Gateway | 4.3  |      |
-|                      |      |      |
-|                      |      |      |
+| 组件                 | 版本  | 部署                  | 应用信息    |
+| -------------------- | ----- | --------------------- | ----------- |
+| Java                 | 21    | 独立部署              |             |
+| Spring Cloud Gateway | 4.3   | Arcus-gateway k8s部署 |             |
+| Jenkins              |       | Docker 部署           | Port: 30002 |
+| Kubesphere           | 4.1.3 | helm 部署             | Port: 30880 |
 
 根据不同项目的内容会选择不同的编程语言和技术栈。  
 参考各项目的`README.md` 文件。
