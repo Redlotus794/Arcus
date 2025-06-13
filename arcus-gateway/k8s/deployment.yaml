@@ -27,7 +27,7 @@ spec:
             limits:
               memory: "512Mi"
               cpu: "500m"
-          imagePullPolicy: Always
+          imagePullPolicy: Never # 使用本地镜像
 
 ---
 # ================= Service =================
