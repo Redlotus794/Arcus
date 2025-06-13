@@ -7,6 +7,7 @@
 
 - Github: [Arcus](https://github.com/Redlotus794/Arucs)
 - 项目架构图: [系统架构图](https://www.processon.com/diagraming/6847bf19590f390f1b036cc1)
+- 项目路径： http://arcus.rdlts.com:30080/ （参考Ingress的部署）
 
 
 

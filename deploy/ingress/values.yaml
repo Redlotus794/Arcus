@@ -1,0 +1,9 @@
+controller:
+  service:
+    type: NodePort
+    ports:
+      http: 80         # 容器监听的端口
+    nodePorts:
+      http: 30080     # 指定 NodePort
+    enableHttps: false
+    sslOpenlistenPorts: false
