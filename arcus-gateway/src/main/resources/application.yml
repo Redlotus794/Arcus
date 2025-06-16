@@ -9,7 +9,7 @@ spring:
             - id: jdk-features-route
               uri: lb://jdk-features
               predicates:
-                - Path=/api/jdk-features/**
+                - Path=/jdk-features/**
               filters:
                 - StripPrefix=1
     nacos:
