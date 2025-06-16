@@ -13,46 +13,45 @@ public class HttpClientDemo {
     @SneakyThrows
     public static void demo() {
         // 创建HTTP客户端
-        try (HttpClient client = HttpClient.newBuilder()
+        HttpClient client = HttpClient.newBuilder()
                 .connectTimeout(Duration.ofSeconds(10))
-                .build()) {
+                .build();
 
 // 构建GET请求
-            HttpRequest request = HttpRequest.newBuilder()
-                    .uri(URI.create("https://api.github.com/users/octocat"))
-                    .header("User-Agent", "Java 11 HttpClient")
-                    .GET()
-                    .build();
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create("https://api.github.com/users/octocat"))
+                .header("User-Agent", "Java 11 HttpClient")
+                .GET()
+                .build();
 
 // 同步发送请求，接收JSON响应
-            HttpResponse<String> response = client.send(request,
-                    HttpResponse.BodyHandlers.ofString());
+        HttpResponse<String> response = client.send(request,
+                HttpResponse.BodyHandlers.ofString());
 
-            System.out.println("Status code: " + response.statusCode());
-            System.out.println("Body: " + response.body());
+        System.out.println("Status code: " + response.statusCode());
+        System.out.println("Body: " + response.body());
 
 // POST请求示例
-            HttpRequest postRequest = HttpRequest.newBuilder()
-                    .uri(URI.create("https://httpbin.org/post"))
-                    .header("Content-Type", "application/json")
-                    .POST(HttpRequest.BodyPublishers.ofString("{\"name\": \"Java\"}"))
-                    .build();
+        HttpRequest postRequest = HttpRequest.newBuilder()
+                .uri(URI.create("https://httpbin.org/post"))
+                .header("Content-Type", "application/json")
+                .POST(HttpRequest.BodyPublishers.ofString("{\"name\": \"Java\"}"))
+                .build();
 
 // 异步发送请求
-            client.sendAsync(postRequest, HttpResponse.BodyHandlers.ofString())
-                    .thenApply(HttpResponse::body)
-                    .thenAccept(System.out::println)
-                    .join();
+        client.sendAsync(postRequest, HttpResponse.BodyHandlers.ofString())
+                .thenApply(HttpResponse::body)
+                .thenAccept(System.out::println)
+                .join();
 
 // 处理JSON响应(需要JSON库)
-            client.sendAsync(request, HttpResponse.BodyHandlers.ofString())
-                    .thenApply(HttpResponse::body)
-                    .thenApply(body -> {
-                        // 使用Jackson或Gson解析JSON
-                        return body;
-                    })
-                    .thenAccept(System.out::println)
-                    .join();
-        }
+        client.sendAsync(request, HttpResponse.BodyHandlers.ofString())
+                .thenApply(HttpResponse::body)
+                .thenApply(body -> {
+                    // 使用Jackson或Gson解析JSON
+                    return body;
+                })
+                .thenAccept(System.out::println)
+                .join();
     }
 }
