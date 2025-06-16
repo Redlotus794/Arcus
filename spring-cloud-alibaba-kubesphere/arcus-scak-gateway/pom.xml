@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.rdlts.arcus</groupId>
-    <artifactId>arcus-scak-gatewway</artifactId>
+    <artifactId>arcus-scak-gateway</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <name>Arcus SCAK Gateway</name>
     <description>Arcus SCAK Gateway</description>

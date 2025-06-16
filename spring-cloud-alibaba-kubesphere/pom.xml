@@ -12,6 +12,6 @@
 
     <modules>
         <module>arcus-scak-bom</module>
-        <module>arcus-scak-gatewway</module>
+        <module>arcus-scak-gateway</module>
     </modules>
 </project>
