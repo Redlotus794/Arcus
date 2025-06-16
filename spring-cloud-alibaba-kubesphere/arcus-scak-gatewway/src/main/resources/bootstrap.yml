@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: arcus-scak-gateway
+  cloud:
+    nacos:
+      discovery:
+        server-addr: nacos.arcus.svc.cluster.local:8848  # K8s ?????
+        namespace: public
+        username: arcus
+        password: 123456
+      config:
+        server-addr: ${spring.cloud.nacos.discovery.server-addr}
+        file-extension: yaml
+        namespace: ${spring.cloud.nacos.discovery.namespace}
+        username: ${spring.cloud.nacos.discovery.username}
+        password: ${spring.cloud.nacos.discovery.password}
+        shared-dataids: common-config.yaml
+        refreshable-dataids: common-config.yaml

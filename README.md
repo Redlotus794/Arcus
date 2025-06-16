@@ -124,7 +124,6 @@
   	port: 27017
   ```
   
-
 - **CI/CD**
 
   - Jenkins
@@ -143,12 +142,13 @@
 
 Arcus 提供技术栈列表
 
-| 组件                 | 版本  | 部署                  | 应用信息    |
-| -------------------- | ----- | --------------------- | ----------- |
-| Java                 | 21    | 独立部署              |             |
-| Spring Cloud Gateway | 4.3   | Arcus-gateway k8s部署 |             |
-| Jenkins              |       | Docker 部署           | Port: 30002 |
-| Kubesphere           | 4.1.3 | helm 部署             | Port: 30880 |
+| 组件                 | 版本             | 部署                  | 应用信息    |
+| -------------------- | ---------------- | --------------------- | ----------- |
+| Maven                | 3.9.4 (Java 21+) | Apache 官网           |             |
+| Java                 | 21               | 独立部署              |             |
+| Spring Cloud Gateway | 4.3              | Arcus-gateway k8s部署 |             |
+| Jenkins              |                  | Docker 部署           | Port: 30002 |
+| Kubesphere           | 4.1.3            | helm 部署             | Port: 30880 |
 
 根据不同项目的内容会选择不同的编程语言和技术栈。  
 参考各项目的`README.md` 文件。
