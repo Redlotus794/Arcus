@@ -3,22 +3,24 @@ spring:
     name: arcus-gateway
   cloud:
     gateway:
-      routes:
-        - id: jdk-features-route
-          uri: lb://jdk-features
-          predicates:
-            - Path=/api/jdk-features/**
-          filters:
-            - StripPrefix=1
+      server:
+        webflux:
+          routes:
+            - id: jdk-features-route
+              uri: lb://jdk-features
+              predicates:
+                - Path=/api/jdk-features/**
+              filters:
+                - StripPrefix=1
     nacos:
       discovery:
         server-addr: nacos-headless:8848
         namespace: public
 
-  server:
-    port: 8080
+server:
+  port: 8080
 
-  logging:
-    level:
-      org.springframework.cloud.gateway: DEBUG
-      reactor.netty: INFO
+logging:
+  level:
+    org.springframework.cloud.gateway: DEBUG
+    reactor.netty: INFO
