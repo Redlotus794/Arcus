@@ -3,13 +3,16 @@ kind: Ingress
 metadata:
   name: arcus-ingress
   namespace: arcus
+  nginx.ingress.kubernetes.io/use-regex: "true"  # 启用正则
+  nginx.ingress.kubernetes.io/rewrite-target: /$1  # 重写路径
 spec:
+  ingressClassName: nginx
   rules:
     - host: arcus.rdlts.com
       http:
         paths:
-          - path: /arcus
-            pathType: Prefix
+          - path: /arcus/(.*)
+            pathType: ImplementationSpecific
             backend:
               service:
                 name: arcus-gateway
