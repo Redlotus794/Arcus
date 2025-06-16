@@ -8,7 +8,7 @@ spec:
     - host: arcus.rdlts.com
       http:
         paths:
-          - path: /arucs
+          - path: /arcus
             pathType: Prefix
             backend:
               service:
