@@ -5,6 +5,8 @@ import com.rdlts.jdk_feature.version10.LocalVariableInference;
 import com.rdlts.jdk_feature.version11.FilesMethod;
 import com.rdlts.jdk_feature.version11.HttpClientDemo;
 import com.rdlts.jdk_feature.version11.StringMethod;
+import com.rdlts.jdk_feature.version12.NumberFormatDemo;
+import com.rdlts.jdk_feature.version12.StringTransform;
 import com.rdlts.jdk_feature.version8.*;
 import com.rdlts.jdk_feature.version9.InterfacePrivateDefaultMethod;
 import com.rdlts.jdk_feature.version9.ProcessAPI9;
@@ -21,8 +23,26 @@ public class AllDemo {
         version9();
         version10();
         version11();
+        version12();
     }
 
+    /**
+     * JDK12特性演示：
+     * String Transform
+     * NumberFormat的简短格式化
+     */
+    private static void version12() {
+        // JDK12特性演示
+        StringTransform.demo();
+        NumberFormatDemo.demo();
+    }
+
+    /**
+     * JDK11特性演示：
+     * String方法增强
+     * HttpClient API
+     * Files方法增强
+     */
     private static void version11() {
         // JDK11特性演示
         StringMethod.demo();
