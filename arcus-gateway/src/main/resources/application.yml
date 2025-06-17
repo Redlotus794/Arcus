@@ -7,7 +7,7 @@ spring:
         webflux:
           routes:
             - id: jdk-features-route
-              uri: lb://jdk-features
+              uri: http://jdk-features
               predicates:
                 - Path=/jdk-features/**
               filters:
