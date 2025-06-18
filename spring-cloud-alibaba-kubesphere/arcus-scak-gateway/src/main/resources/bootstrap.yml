@@ -4,8 +4,8 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: nacos.arcus.svc.cluster.local:8848  # K8s ?????
-        namespace: public
+        server-addr: nacos-headless:8848  # K8s ?????
+        namespace: scak
         username: arcus
         password: 123456
       config:
