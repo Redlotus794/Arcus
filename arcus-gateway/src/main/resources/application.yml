@@ -15,7 +15,7 @@ spring:
     nacos:
       discovery:
         server-addr: nacos-headless:8848
-        namespace: public
+        namespace: arcus
         register-enabled: true  # 确保注册开关是 true
 server:
   port: 8080
