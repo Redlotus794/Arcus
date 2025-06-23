@@ -148,6 +148,7 @@ Arcus 提供技术栈列表
 | Spring Cloud Gateway | 4.3              | Arcus-gateway k8s部署 |                     |
 | Kubesphere           | 4.1.3            | helm 部署             | Console Port: 30880 |
 | Ingress Controller   |                  | helm 部署             | Port: 30080         |
+| OpenAPI              |                  |                       |                     |
 
 根据不同项目的内容会选择不同的编程语言和技术栈。  
 参考各项目的`README.md` 文件。
