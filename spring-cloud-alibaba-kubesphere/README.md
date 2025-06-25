@@ -58,10 +58,18 @@ spring-cloud-alibaba-kubesphere/
   ./quick-start-macos.sh 
   ./quick-start-macos.sh delete
   ```
-
-  
-
 - Nacos 控制台 : http://127.0.0.1:30001/
+- 查询Ingress Nginx的日志
+```shell
+# 获取Nginx Ingress控制器的Pod名称
+kubectl get pods -n ingress-nginx -l app.kubernetes.io/name=ingress-nginx
+
+# 查看日志（替换<POD_NAME>为实际Pod名称）
+kubectl logs <POD_NAME> -n ingress-nginx
+
+# 实时跟踪日志（添加-f参数）
+kubectl logs -f <POD_NAME> -n ingress-nginx
+```
 
 # 🚀 部署步骤
 

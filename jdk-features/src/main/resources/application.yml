@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: jdk-features
+  cloud:
+    nacos:
+      discovery:
+        server-addr: nacos-headless:8848
+        namespace: arcus
+        register-enabled: true  # ??????? true

@@ -25,7 +25,7 @@
   - AMD Radeon Pro 5500M 8 GB
   - Intel UHD Graphics 630 1536 MB
 - Memory: 32 GB 2667 MHz DDR4
-- SSD
+- SSD 1TB
 
 
 
@@ -89,66 +89,66 @@
   cd deploy/mysql-8
   docker compose up -d
   ```
+
   
-  
-  
+
   - MySQL 8.0.34 
-  
+
   ```yaml
   mysql:
   	host: localhost
   	port: 3308
   ```
-  
+
   - MySQL 5.7
-  
+
   ```yaml
   mysql:
   	host: localhost
   	port: 3307
   ```
-  
+
   - Redis 7
-  
+
   ```yaml
   redis: 
   	host: localhost
   	port: 6380
   ```
-  
+
   - MongoDB 6
-  
+
   ```yaml
   mongodb:
   	host: localhost
   	port: 27017
   ```
-  
+
 - **CI/CD**
 
-  - Jenkins
+  - Jenkins 2.504.2
 
-  ```shell
-  cd deploy/jenkins
-  kubectl apply -f jenkins-pvc.yaml -n arucs
-  kubectl apply -f jenkins-deployment.yaml -n arcus
-  kubectl apply -f jenkins-service.yaml -n arcus
-  
-  ```
+    [brew安装.md](deploy/jenkins/brew安装.md)
 
-  账号： arcus / 123456
+    pipeline部署方式
+
+    IDEA Jenkins Controller集成
+
+    
+
 
 ## 🧩 技术栈使用
 
 Arcus 提供技术栈列表
 
-| 组件                 | 版本             | 部署                  | 应用信息    |
-| -------------------- | ---------------- | --------------------- | ----------- |
-| Maven                | 3.9.4 (Java 21+) | Apache 官网           |             |
-| Java                 | 21               | 独立部署              |             |
-| Spring Cloud Gateway | 4.3              | Arcus-gateway k8s部署 |             |
-| Jenkins              |                  | Docker 部署           | Port: 30002 |
-| Kubesphere           | 4.1.3            | helm 部署             | Port: 30880 |
+| 组件                 | 版本             | 部署                  | 应用信息            |
+| -------------------- | ---------------- | --------------------- | ------------------- |
+| Maven                | 3.9.4 (Java 21+) | Apache 官网           |                     |
+| Java                 | 21               | 独立部署              |                     |
+| Spring Cloud Gateway | 4.3              | Arcus-gateway k8s部署 |                     |
+| Kubesphere           | 4.1.3            | helm 部署             | Console Port: 30880 |
+| Ingress Controller   |                  | helm 部署             | Port: 30080         |
+| OpenAPI              |                  |                       |                     |
 
 根据不同项目的内容会选择不同的编程语言和技术栈。  
 参考各项目的`README.md` 文件。

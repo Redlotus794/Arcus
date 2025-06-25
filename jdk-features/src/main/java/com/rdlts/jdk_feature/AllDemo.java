@@ -7,6 +7,10 @@ import com.rdlts.jdk_feature.version11.HttpClientDemo;
 import com.rdlts.jdk_feature.version11.StringMethod;
 import com.rdlts.jdk_feature.version12.NumberFormatDemo;
 import com.rdlts.jdk_feature.version12.StringTransform;
+import com.rdlts.jdk_feature.version14.NPEFriendlyMessage;
+import com.rdlts.jdk_feature.version14.SwitchExpression;
+import com.rdlts.jdk_feature.version15.TextBlockFeature;
+import com.rdlts.jdk_feature.version16.TypeRecordsFeature;
 import com.rdlts.jdk_feature.version8.*;
 import com.rdlts.jdk_feature.version9.InterfacePrivateDefaultMethod;
 import com.rdlts.jdk_feature.version9.ProcessAPI9;
@@ -24,6 +28,33 @@ public class AllDemo {
         version10();
         version11();
         version12();
+        version14();
+        version15();
+        version16();
+    }
+
+    public static void version16() {
+        // JDK16特性演示：类型记录（Record）
+        TypeRecordsFeature.demo();
+    }
+
+    /**
+     * JDK15特性演示：
+     * Text Blocks
+     */
+    public static void version15() {
+        TextBlockFeature.demo();
+    }
+
+    /**
+     * JDK14特性演示：
+     * NPE友好的消息
+     * Switch表达式
+     */
+    private static void version14() {
+        // JDK14特性演示
+        NPEFriendlyMessage.demo();
+        SwitchExpression.demo();
     }
 
     /**
