@@ -10,7 +10,16 @@ package com.rdlts.arcus.ddd.core.domain;
  * @author wangjialong
  * @since 2025-06-26
  */
+@SuppressWarnings("all")
 public interface DomainServiceRegistry {
+
+    /**
+     * instance - 获取领域服务注册表实例
+     * @return DomainServiceRegistry
+     */
+    static DomainServiceRegistry instance() {
+        return DomainServiceRegistryHolder.INSTANCE;
+    }
 
     /**
      * findService - 获取领域服务
