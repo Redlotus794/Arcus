@@ -26,6 +26,8 @@ package com.rdlts.arcus.ddd.core.domain;
  *  </ul>
  *
  * @author wangjialong
+ *
+ * @see DomainServiceRegistry
  * @since 2025-06-26
  */
 public interface DomainService {
