@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.rdlts.arcus</groupId>
-        <artifactId>arcus-ddd-test</artifactId>
+        <artifactId>arcus-ddd</artifactId>
         <version>1.0.0-SNAPSHOT</version>
     </parent>
 
