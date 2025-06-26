@@ -14,6 +14,7 @@
         <module>arcus-ddd-core</module>
         <module>arcus-ddd-dependencies</module>
         <module>arcus-ddd-spring-starter</module>
+        <module>arcus-ddd-test</module>
     </modules>
 
     <properties>

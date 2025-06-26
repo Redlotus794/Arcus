@@ -15,8 +15,22 @@
     <name>Arcus DDD Dependencies</name>
     <description>Dependency management for Arcus DDD modules</description>
 
+    <properties>
+        <arcus.ddd.version>1.0.0-SNAPSHOT</arcus.ddd.version>
+    </properties>
+
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>com.rdlts.arcus</groupId>
+                <artifactId>arcus-ddd-core</artifactId>
+                <version>${arcus.ddd.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.rdlts.arcus</groupId>
+                <artifactId>arcus-ddd-spring-starter</artifactId>
+                <version>${arcus.ddd.version}</version>
+            </dependency>
             <dependency>
                 <groupId>com.google.code.findbugs</groupId>
                 <artifactId>jsr305</artifactId>
