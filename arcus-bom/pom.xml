@@ -30,7 +30,7 @@
             <dependency>
                 <groupId>com.google.guava</groupId>
                 <artifactId>guava</artifactId>
-                <version>33.4.0-jre</version>
+                <version>33.3.1-jre</version>
                 <scope>compile</scope>
             </dependency>
             <dependency>
@@ -44,6 +44,18 @@
                 <artifactId>junit-jupiter-api</artifactId>
                 <version>5.12.2</version>
                 <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.derby</groupId>
+                <artifactId>derby</artifactId>
+                <version>10.17.1.0</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>8.0.33</version>
+                <scope>runtime</scope>
             </dependency>
         </dependencies>
     </dependencyManagement>
