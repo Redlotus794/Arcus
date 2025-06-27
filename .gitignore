@@ -18,3 +18,4 @@ __pycache__/
 **/.ipynb_checkpoints/
 
 /spring-cloud-alibaba-kubesphere/spring-cloud-alibaba-kubesphere.iml
+**/derby.log

@@ -1,0 +1,25 @@
+spring:
+  datasource:
+    initialize: false
+    url: jdbc:derby:/Users/wangjialong/data/derby/arcus;create=true
+    driver-class-name: org.apache.derby.iapi.jdbc.AutoloadedDriver
+    username: arcus
+    password: 123456
+    hikari:
+      minimum-idle: 2
+      maximum-pool-size: 10
+      idle-timeout: 600000
+      max-lifetime: 1800000
+      connection-timeout: 30000
+      pool-name: ArcusIdentityHikariCP
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+    properties:
+      hibernate:
+        default_schema: ARCUS_IDENTITY
+        transaction:
+          jta.platform: org.hibernate.service.jta.platform.internal.NoJtaPlatform
+        format_sql: true
+        dialect: org.hibernate.dialect.DerbyDialect
