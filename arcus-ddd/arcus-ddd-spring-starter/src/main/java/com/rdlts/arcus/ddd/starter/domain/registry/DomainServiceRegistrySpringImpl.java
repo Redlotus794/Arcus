@@ -17,7 +17,10 @@ public class DomainServiceRegistrySpringImpl implements DomainServiceRegistry, A
 
     private ApplicationContext applicationContext;
 
-    public static DomainServiceRegistry getInstance() {
+    public DomainServiceRegistry getInstance() {
+        if (INSTANCE == null) {
+            throw new IllegalStateException("DomainServiceRegistrySpringImpl 未初始化，请确保已正确配置 Spring 上下文。");
+        }
         return INSTANCE;
     }
 

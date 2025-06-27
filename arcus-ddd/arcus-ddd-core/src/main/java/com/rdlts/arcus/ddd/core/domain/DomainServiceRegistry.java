@@ -22,6 +22,13 @@ public interface DomainServiceRegistry {
     }
 
     /**
+     * getInstance - 获取领域服务注册表实例
+     *
+     * @return DomainServiceRegistry
+     */
+    DomainServiceRegistry getInstance();
+
+    /**
      * findService - 获取领域服务
      *
      * @param clazz Class

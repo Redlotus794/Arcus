@@ -33,7 +33,7 @@ public class DomainServiceRegistryHolder {
         ServiceLoader<DomainServiceRegistry> loader = ServiceLoader.load(DomainServiceRegistry.class);
         for (DomainServiceRegistry registry: loader) {
             logger.info("找到DomainServiceRegistry的实现: " + registry.getClass().getName());
-            return registry;
+            return registry.getInstance();
         }
 
         throw new IllegalStateException("未找到 DomainServiceRegistry 的实现类，请确保已正确配置服务提供者接口 (SPI)。");
