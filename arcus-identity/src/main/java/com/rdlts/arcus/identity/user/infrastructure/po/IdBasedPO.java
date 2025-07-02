@@ -1,4 +1,4 @@
-package com.rdlts.arcus.identity.user.infrastructure.dao;
+package com.rdlts.arcus.identity.user.infrastructure.po;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.GeneratedValue;
@@ -15,13 +15,20 @@ import lombok.experimental.SuperBuilder;
 
 import java.time.LocalDateTime;
 
+/**
+ * IdBasedPO - Id Based Persistent Object
+ * 基于ID的持久化对象基类
+ *
+ * @author wangjialong
+ * @since 2025-06-30
+ */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode
 @SuperBuilder
 @MappedSuperclass
-public class IdBasedDao {
+public class IdBasedPO {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

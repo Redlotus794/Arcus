@@ -4,8 +4,8 @@ import com.rdlts.arcus.identity.user.domian.entity.ArcusUser;
 import com.rdlts.arcus.identity.user.domian.repository.ArcusUserRepository;
 import com.rdlts.arcus.identity.user.domian.valueobject.ArcusUserId;
 import com.rdlts.arcus.identity.user.infrastructure.adapter.ArcusUserAdapter;
-import com.rdlts.arcus.identity.user.infrastructure.dao.ArcusUserDao;
-import com.rdlts.arcus.identity.user.infrastructure.dao.ArcusUserDaoAdapter;
+import com.rdlts.arcus.identity.user.infrastructure.po.ArcusUserPO;
+import com.rdlts.arcus.identity.user.infrastructure.po.ArcusUserPOAdapter;
 import jakarta.annotation.Resource;
 import org.springframework.stereotype.Component;
 
@@ -17,7 +17,7 @@ import java.util.Optional;
 public class ArcusUserRepositoryImpl implements ArcusUserRepository {
 
     @Resource
-    ArcusUserDaoJpaRepository arcusUserDaoJpaRepository;
+    ArcusUserDAO arcusUserDAO;
 
     @Override
     public ArcusUserId nextIdentity() {
@@ -26,9 +26,9 @@ public class ArcusUserRepositoryImpl implements ArcusUserRepository {
 
     @Override
     public Optional<ArcusUser> find(ArcusUserId arcusUserId) {
-        final ArcusUserDao arcusUserDao = arcusUserDaoJpaRepository.findByUserId(arcusUserId.id());
-        if (arcusUserDao != null) {
-            return Optional.of(ArcusUserAdapter.adapt(arcusUserDao));
+        final ArcusUserPO arcusUserPO = arcusUserDAO.findByUserId(arcusUserId.id());
+        if (arcusUserPO != null) {
+            return Optional.of(ArcusUserAdapter.adapt(arcusUserPO));
         }
         return Optional.empty();
     }
@@ -40,7 +40,7 @@ public class ArcusUserRepositoryImpl implements ArcusUserRepository {
 
     @Override
     public void save(ArcusUser entity) {
-        arcusUserDaoJpaRepository.save(ArcusUserDaoAdapter.adapt(entity));
+        arcusUserDAO.save(ArcusUserPOAdapter.adapt(entity));
     }
 
     @Override

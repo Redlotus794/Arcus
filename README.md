@@ -157,6 +157,11 @@ Arcus 提供技术栈列表
 
 ## 🚀 项目列表
 
+- Arcus BOM - Arcus的Dependencies项目
+- Arcus Common JDK17 - [README.md](arcus-common-jdk17/README.md)
+- Arcus DDD - [README.md](arcus-ddd/README.md)
 - JDK Feature - [README.md](jdk-features/README.md)
 - Leetcode - [README.md](leetcode/README.md)
 - Spring Cloud Alibaba KubeSphere - [README.md](spring-cloud-alibaba-kubesphere/README.md)
+
+## 通用语言

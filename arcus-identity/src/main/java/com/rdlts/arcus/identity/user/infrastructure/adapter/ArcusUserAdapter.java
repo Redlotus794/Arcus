@@ -3,25 +3,41 @@ package com.rdlts.arcus.identity.user.infrastructure.adapter;
 import com.rdlts.arcus.ddd.core.domain.EntityVersion;
 import com.rdlts.arcus.identity.user.domian.entity.ArcusUser;
 import com.rdlts.arcus.identity.user.domian.valueobject.*;
-import com.rdlts.arcus.identity.user.infrastructure.dao.ArcusUserDao;
+import com.rdlts.arcus.identity.user.infrastructure.ejo.ArcusUserEJO;
+import com.rdlts.arcus.identity.user.infrastructure.po.ArcusUserPO;
 
 import javax.annotation.Nonnull;
 
 public class ArcusUserAdapter {
 
     @Nonnull
-    public static ArcusUser adapt(@Nonnull ArcusUserDao arcusUserDao) {
+    public static ArcusUser adapt(@Nonnull ArcusUserPO arcusUserPO) {
         return ArcusUser.builder()
-                .userId(new ArcusUserId(arcusUserDao.getUserId()))
-                .profile(new ArcusProfile(arcusUserDao.getUsername(), arcusUserDao.getAvatar()))
+                .userId(new ArcusUserId(arcusUserPO.getUserId()))
+                .profile(new ArcusProfile(arcusUserPO.getUsername(), arcusUserPO.getAvatar()))
                 .encryptedPassword(new ArcusUserEncryptedPassword(
-                        arcusUserDao.getEncryptedPassword(),
+                        arcusUserPO.getEncryptedPassword(),
                         new Pbkdf2Param(
-                            arcusUserDao.getSalt(),
-                            arcusUserDao.getIteration(),
-                            arcusUserDao.getKeyLength())))
-                .email(arcusUserDao.getEmail() == null ? null : new ArcusUserEmail(arcusUserDao.getEmail()))
-                .entityVersion(new EntityVersion(arcusUserDao.getEntityVersion()))
+                            arcusUserPO.getSalt(),
+                            arcusUserPO.getIteration(),
+                            arcusUserPO.getKeyLength())))
+                .email(arcusUserPO.getEmail() == null ? null : new ArcusUserEmail(arcusUserPO.getEmail()))
+                .entityVersion(new EntityVersion(arcusUserPO.getEntityVersion()))
+                .build();
+    }
+
+    public static ArcusUser adapt(@Nonnull ArcusUserEJO arcusUserEJO) {
+        return ArcusUser.builder()
+                .userId(new ArcusUserId(arcusUserEJO.getUserId()))
+                .profile(new ArcusProfile(arcusUserEJO.getProfileName(), arcusUserEJO.getProfileAvatar()))
+                .encryptedPassword(new ArcusUserEncryptedPassword(
+                        arcusUserEJO.getEncryptedPassword(),
+                        new Pbkdf2Param(
+                            arcusUserEJO.getSalt(),
+                            arcusUserEJO.getIterations(),
+                            arcusUserEJO.getKeyLength())))
+                .email(arcusUserEJO.getEmail() == null ? null : new ArcusUserEmail(arcusUserEJO.getEmail()))
+                .entityVersion(new EntityVersion(arcusUserEJO.getEntityVersion()))
                 .build();
     }
 }

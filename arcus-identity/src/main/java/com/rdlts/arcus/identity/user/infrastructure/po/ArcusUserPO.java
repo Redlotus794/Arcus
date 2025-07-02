@@ -1,4 +1,4 @@
-package com.rdlts.arcus.identity.user.infrastructure.dao;
+package com.rdlts.arcus.identity.user.infrastructure.po;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -7,13 +7,13 @@ import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 @Entity
-@Table(name = "arcus_identity_user", schema="arcus_identity")
+@Table(name = "arcus_user", schema="arcus_identity")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @SuperBuilder
-public class ArcusUserDao extends IdBasedDao {
+public class ArcusUserPO extends IdBasedPO {
 
     @Column(name = "user_id", nullable = false, unique = true, length = 36)
     private String userId;

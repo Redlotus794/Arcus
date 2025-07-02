@@ -24,7 +24,7 @@ public class ArcusUserRepositoryTest extends ArcusIdentityBaseTest {
         ArcusUser user = ArcusUser.builder()
                 .userId(userId)
                 .profile(ArcusProfile.builder()
-                        .name(RandomStringUtils.secure().nextAlphabetic(6))
+                        .username(RandomStringUtils.secure().nextAlphabetic(6))
                         .avatar("http://example.com/avatar.png")
                         .build())
                 .encryptedPassword(new ArcusUserEncryptedPassword(

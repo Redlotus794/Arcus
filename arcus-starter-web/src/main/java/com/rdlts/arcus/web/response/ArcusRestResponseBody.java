@@ -1,4 +1,4 @@
-package com.rdlts.arcus.common.sharedkernel.userinterface;
+package com.rdlts.arcus.web.response;
 
 import lombok.*;
 
