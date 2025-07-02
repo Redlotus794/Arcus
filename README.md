@@ -141,14 +141,14 @@
 
 Arcus 提供技术栈列表
 
-| 组件                 | 版本             | 部署                  | 应用信息            |
-| -------------------- | ---------------- | --------------------- | ------------------- |
+| 组件                 | 版本               | 部署                  | 应用信息                |
+| -------------------- |------------------|---------------------|---------------------|
 | Maven                | 3.9.4 (Java 21+) | Apache 官网           |                     |
-| Java                 | 21               | 独立部署              |                     |
+| Java                 | 21               | JVM                 |                     |
 | Spring Cloud Gateway | 4.3              | Arcus-gateway k8s部署 |                     |
-| Kubesphere           | 4.1.3            | helm 部署             | Console Port: 30880 |
-| Ingress Controller   |                  | helm 部署             | Port: 30080         |
-| OpenAPI              |                  |                       |                     |
+| Kubesphere           | 4.1.3            | helm                | Console Port: 30880 |
+| Ingress Controller   |                  | helm                | Port: 30080         |
+| OpenAPI              | 2.5.0            | maven               |                     |
 
 根据不同项目的内容会选择不同的编程语言和技术栈。  
 参考各项目的`README.md` 文件。
@@ -165,3 +165,5 @@ Arcus 提供技术栈列表
 - Spring Cloud Alibaba KubeSphere - [README.md](spring-cloud-alibaba-kubesphere/README.md)
 
 ## 通用语言
+
+- [UL.md](UL.md)
