@@ -96,8 +96,8 @@
 
   ```yaml
   mysql:
-  	host: localhost
-  	port: 3308
+    host: localhost
+    port: 3308
   ```
 
   - MySQL 5.7
