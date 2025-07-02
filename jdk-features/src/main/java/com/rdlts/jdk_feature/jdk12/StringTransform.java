@@ -1,4 +1,4 @@
-package com.rdlts.jdk_feature.version12;
+package com.rdlts.jdk_feature.jdk12;
 
 public class StringTransform {
 

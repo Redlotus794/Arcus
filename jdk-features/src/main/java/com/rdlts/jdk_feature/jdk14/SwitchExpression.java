@@ -1,4 +1,4 @@
-package com.rdlts.jdk_feature.version14;
+package com.rdlts.jdk_feature.jdk14;
 
 import java.time.DayOfWeek;
 import java.time.LocalDate;

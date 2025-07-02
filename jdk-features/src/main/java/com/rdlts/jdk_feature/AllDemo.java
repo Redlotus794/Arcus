@@ -1,21 +1,22 @@
 package com.rdlts.jdk_feature;
 
-import com.rdlts.jdk_feature.version10.CopyOfDemo;
-import com.rdlts.jdk_feature.version10.LocalVariableInference;
-import com.rdlts.jdk_feature.version11.FilesMethod;
-import com.rdlts.jdk_feature.version11.HttpClientDemo;
-import com.rdlts.jdk_feature.version11.StringMethod;
-import com.rdlts.jdk_feature.version12.NumberFormatDemo;
-import com.rdlts.jdk_feature.version12.StringTransform;
-import com.rdlts.jdk_feature.version14.NPEFriendlyMessage;
-import com.rdlts.jdk_feature.version14.SwitchExpression;
-import com.rdlts.jdk_feature.version15.TextBlockFeature;
-import com.rdlts.jdk_feature.version16.TypeRecordsFeature;
-import com.rdlts.jdk_feature.version8.*;
-import com.rdlts.jdk_feature.version9.InterfacePrivateDefaultMethod;
-import com.rdlts.jdk_feature.version9.ProcessAPI9;
-import com.rdlts.jdk_feature.version9.SmallCollectionCreation;
-import com.rdlts.jdk_feature.version9.StreamAPI9;
+import com.rdlts.jdk_feature.jdk10.CopyOfDemo;
+import com.rdlts.jdk_feature.jdk10.LocalVariableInference;
+import com.rdlts.jdk_feature.jdk11.FilesMethod;
+import com.rdlts.jdk_feature.jdk11.HttpClientDemo;
+import com.rdlts.jdk_feature.jdk11.StringMethod;
+import com.rdlts.jdk_feature.jdk12.NumberFormatDemo;
+import com.rdlts.jdk_feature.jdk12.StringTransform;
+import com.rdlts.jdk_feature.jdk14.NPEFriendlyMessage;
+import com.rdlts.jdk_feature.jdk14.SwitchExpression;
+import com.rdlts.jdk_feature.jdk15.TextBlockFeature;
+import com.rdlts.jdk_feature.jdk16.TypeRecordsFeature;
+import com.rdlts.jdk_feature.jdk17.SealedInterface;
+import com.rdlts.jdk_feature.jdk8.*;
+import com.rdlts.jdk_feature.jdk9.InterfacePrivateDefaultMethod;
+import com.rdlts.jdk_feature.jdk9.ProcessAPI9;
+import com.rdlts.jdk_feature.jdk9.SmallCollectionCreation;
+import com.rdlts.jdk_feature.jdk9.StreamAPI9;
 
 /**
  * <a href="https://mp.weixin.qq.com/s/Ihm1KwjYtiuMU8whjqCY6Q">JDK9~JDK21的29个实用特性</a>
@@ -23,17 +24,23 @@ import com.rdlts.jdk_feature.version9.StreamAPI9;
 public class AllDemo {
 
     public static void main(String[] args) throws Exception {
-        version8();
-        version9();
-        version10();
-        version11();
-        version12();
-        version14();
-        version15();
-        version16();
+        jdk8();
+        jdk9();
+        jdk10();
+        jdk11();
+        jdk12();
+        jdk14();
+        jdk15();
+        jdk16();
+        jdk17();
     }
 
-    public static void version16() {
+    public static void jdk17() {
+        // JDK17特性演示：密封接口
+        SealedInterface.demo();
+    }
+
+    public static void jdk16() {
         // JDK16特性演示：类型记录（Record）
         TypeRecordsFeature.demo();
     }
@@ -42,7 +49,7 @@ public class AllDemo {
      * JDK15特性演示：
      * Text Blocks
      */
-    public static void version15() {
+    public static void jdk15() {
         TextBlockFeature.demo();
     }
 
@@ -51,7 +58,7 @@ public class AllDemo {
      * NPE友好的消息
      * Switch表达式
      */
-    private static void version14() {
+    private static void jdk14() {
         // JDK14特性演示
         NPEFriendlyMessage.demo();
         SwitchExpression.demo();
@@ -62,7 +69,7 @@ public class AllDemo {
      * String Transform
      * NumberFormat的简短格式化
      */
-    private static void version12() {
+    private static void jdk12() {
         // JDK12特性演示
         StringTransform.demo();
         NumberFormatDemo.demo();
@@ -74,7 +81,7 @@ public class AllDemo {
      * HttpClient API
      * Files方法增强
      */
-    private static void version11() {
+    private static void jdk11() {
         // JDK11特性演示
         StringMethod.demo();
         HttpClientDemo.demo();
@@ -87,7 +94,7 @@ public class AllDemo {
      * CopyOf方法简化数组复制
      * @throws Exception e
      */
-    private static void version10() throws Exception {
+    private static void jdk10() throws Exception {
         // JDK10特性演示
         LocalVariableInference.demo();
         CopyOfDemo.demo();
@@ -103,7 +110,7 @@ public class AllDemo {
      * 并发增强 CompletableFuture
      * 接口默认方法
      */
-    public static void version8() {
+    public static void jdk8() {
         FunctionalInterfaceDemo.demo();
         LambdaExpression.demo();
         OptionalUsage.demo();
@@ -118,7 +125,7 @@ public class AllDemo {
      * 接口私有方法
      * Stream API 增强: takeWhile, dropWhile, iterator limit
      */
-    public static void version9() {
+    public static void jdk9() {
         SmallCollectionCreation.demo();
         InterfacePrivateDefaultMethod.demo();
         StreamAPI9.demo();

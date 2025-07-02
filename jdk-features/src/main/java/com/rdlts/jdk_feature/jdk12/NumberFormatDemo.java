@@ -1,4 +1,4 @@
-package com.rdlts.jdk_feature.version12;
+package com.rdlts.jdk_feature.jdk12;
 
 import java.text.NumberFormat;
 import java.util.Locale;

@@ -1,4 +1,4 @@
-package com.rdlts.jdk_feature.version9;
+package com.rdlts.jdk_feature.jdk9;
 
 import java.io.IOException;
 import java.util.Optional;

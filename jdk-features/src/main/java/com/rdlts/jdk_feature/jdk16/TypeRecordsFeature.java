@@ -1,4 +1,4 @@
-package com.rdlts.jdk_feature.version16;
+package com.rdlts.jdk_feature.jdk16;
 
 public class TypeRecordsFeature {
 

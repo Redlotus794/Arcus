@@ -1,4 +1,4 @@
-package com.rdlts.jdk_feature.version8;
+package com.rdlts.jdk_feature.jdk8;
 
 /**
  * 方法引用

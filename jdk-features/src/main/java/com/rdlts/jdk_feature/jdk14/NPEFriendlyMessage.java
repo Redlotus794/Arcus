@@ -1,4 +1,4 @@
-package com.rdlts.jdk_feature.version14;
+package com.rdlts.jdk_feature.jdk14;
 
 public class NPEFriendlyMessage {
 

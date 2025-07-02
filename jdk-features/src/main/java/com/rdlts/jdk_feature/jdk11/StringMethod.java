@@ -1,4 +1,4 @@
-package com.rdlts.jdk_feature.version11;
+package com.rdlts.jdk_feature.jdk11;
 
 public class StringMethod {
 

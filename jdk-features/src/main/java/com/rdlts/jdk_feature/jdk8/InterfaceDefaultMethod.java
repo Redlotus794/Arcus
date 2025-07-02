@@ -1,4 +1,4 @@
-package com.rdlts.jdk_feature.version8;
+package com.rdlts.jdk_feature.jdk8;
 
 import lombok.extern.log4j.Log4j2;
 

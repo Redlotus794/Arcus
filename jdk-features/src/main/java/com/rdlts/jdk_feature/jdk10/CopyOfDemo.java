@@ -1,4 +1,4 @@
-package com.rdlts.jdk_feature.version10;
+package com.rdlts.jdk_feature.jdk10;
 
 public class CopyOfDemo {
 

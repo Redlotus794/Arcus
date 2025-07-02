@@ -1,4 +1,4 @@
-package com.rdlts.jdk_feature.version15;
+package com.rdlts.jdk_feature.jdk15;
 
 import com.alibaba.nacos.shaded.com.google.gson.Gson;
 import lombok.AllArgsConstructor;

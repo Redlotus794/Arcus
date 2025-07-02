@@ -1,4 +1,4 @@
-package com.rdlts.jdk_feature.version10;
+package com.rdlts.jdk_feature.jdk10;
 
 import org.apache.commons.lang3.StringUtils;
 
