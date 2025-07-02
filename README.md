@@ -104,24 +104,24 @@
 
   ```yaml
   mysql:
-  	host: localhost
-  	port: 3307
+    host: localhost
+    port: 3307
   ```
 
   - Redis 7
 
   ```yaml
   redis: 
-  	host: localhost
-  	port: 6380
+    host: localhost
+    port: 6380
   ```
 
   - MongoDB 6
 
   ```yaml
   mongodb:
-  	host: localhost
-  	port: 27017
+    host: localhost
+    port: 27017
   ```
 
 - **CI/CD**
