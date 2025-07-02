@@ -13,6 +13,7 @@ import com.rdlts.jdk_feature.jdk15.TextBlockFeature;
 import com.rdlts.jdk_feature.jdk16.TypeRecordsFeature;
 import com.rdlts.jdk_feature.jdk17.RandomGeneratorFeature;
 import com.rdlts.jdk_feature.jdk17.SealedInterface;
+import com.rdlts.jdk_feature.jdk18.SnippetFeature;
 import com.rdlts.jdk_feature.jdk8.*;
 import com.rdlts.jdk_feature.jdk9.InterfacePrivateDefaultMethod;
 import com.rdlts.jdk_feature.jdk9.ProcessAPI9;
@@ -34,6 +35,11 @@ public class AllDemo {
         jdk15();
         jdk16();
         jdk17();
+        jdk18();
+    }
+
+    private static void jdk18() {
+        SnippetFeature.demo();
     }
 
     public static void jdk17() {
