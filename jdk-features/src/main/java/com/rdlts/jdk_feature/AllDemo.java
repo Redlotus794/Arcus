@@ -11,6 +11,7 @@ import com.rdlts.jdk_feature.jdk14.NPEFriendlyMessage;
 import com.rdlts.jdk_feature.jdk14.SwitchExpression;
 import com.rdlts.jdk_feature.jdk15.TextBlockFeature;
 import com.rdlts.jdk_feature.jdk16.TypeRecordsFeature;
+import com.rdlts.jdk_feature.jdk17.RandomGeneratorFeature;
 import com.rdlts.jdk_feature.jdk17.SealedInterface;
 import com.rdlts.jdk_feature.jdk8.*;
 import com.rdlts.jdk_feature.jdk9.InterfacePrivateDefaultMethod;
@@ -38,6 +39,7 @@ public class AllDemo {
     public static void jdk17() {
         // JDK17特性演示：密封接口
         SealedInterface.demo();
+        RandomGeneratorFeature.demo();
     }
 
     public static void jdk16() {
