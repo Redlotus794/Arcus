@@ -3,7 +3,7 @@
 
 
 
-## 项目地址
+## ⚽️ 项目地址
 
 - Github: [Arcus](https://github.com/Redlotus794/Arucs)
 - 项目架构图: [系统架构图](https://www.processon.com/diagraming/6847bf19590f390f1b036cc1)
@@ -11,14 +11,14 @@
 
 
 
-## 背景
+## 🚴‍♂️ 背景
 
 本项目是一个基于多编程语言环境，实验性的项目。旨在探索和实现不同编程语言的能力。  
 项目基于GNU General Public License v3.0（GPL-3.0）协议。  
 
 
 
-## 硬件（我的Mac）
+## 🀄️ 硬件（我的Mac）
 
 - Processor: 2.6 GHz 6-Core Intel Core i7
 - Graphics: 
@@ -29,7 +29,7 @@
 
 
 
-## 基础设施
+## 🥦 基础设施
 
 - **操作系统**: MacOS Sonoma 14.2.1
 
@@ -164,6 +164,14 @@ Arcus 提供技术栈列表
 - Leetcode - [README.md](leetcode/README.md)
 - Spring Cloud Alibaba KubeSphere - [README.md](spring-cloud-alibaba-kubesphere/README.md)
 
-## 通用语言
+
+
+## 🏆 通用语言
 
 - [UL.md](UL.md)
+
+
+
+## 🎹 项目规范
+
+- [Arcus Convention](docs/convention/README.md)

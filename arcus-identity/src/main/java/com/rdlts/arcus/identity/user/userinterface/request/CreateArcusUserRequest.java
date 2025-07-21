@@ -3,10 +3,11 @@ package com.rdlts.arcus.identity.user.userinterface.request;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotBlank;
 import lombok.*;
-import org.hibernate.validator.constraints.Length;
 
 /**
  * CreateArcusUserRequest
+ *
+ * @author wangjialong
  */
 @Data
 @NoArgsConstructor

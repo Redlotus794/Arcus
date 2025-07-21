@@ -16,7 +16,7 @@ import org.springframework.transaction.annotation.Transactional;
  * @since 2025-06-26
  */
 @Service
-public class UserManagementApplicationService {
+public class ArcusUserApplicationService {
 
     /**
      * createUser
