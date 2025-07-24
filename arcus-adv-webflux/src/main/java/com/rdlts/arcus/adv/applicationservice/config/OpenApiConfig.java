@@ -16,7 +16,7 @@ public class OpenApiConfig {
     @Bean
     public OpenAPI customOpenAPI() {
         return new OpenAPI()
-                .servers(List.of(new Server().url("http://localhost:9090")
+                .servers(List.of(new Server().url("http://localhost:9000/arcus-adv-webflux")
                         .description("Development Server")))
                 .info(new Info()
                         .title("Arcus ADV WebFlux API")
