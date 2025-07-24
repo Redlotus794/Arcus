@@ -126,7 +126,7 @@
 
 - **CI/CD**
 
-  - Jenkins 2.504.2
+  - Jenkins 2.504.2 (9090)
 
     [brew安装.md](deploy/jenkins/brew安装.md)
 
@@ -175,3 +175,8 @@ Arcus 提供技术栈列表
 ## 🎹 项目规范
 
 - [Arcus Convention](docs/convention/README.md)
+
+
+## 💻 应用程序
+
+- [应用服务](docs/app/README.md)
