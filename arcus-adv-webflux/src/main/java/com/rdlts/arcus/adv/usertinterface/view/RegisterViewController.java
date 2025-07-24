@@ -1,11 +1,15 @@
 package com.rdlts.arcus.adv.usertinterface.view;
 
+import com.rdlts.arcus.adv.usertinterface.view.request.RegisterUserRequest;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import reactor.core.publisher.Mono;
 
 /**
  * RegisterViewController
@@ -21,9 +25,9 @@ public class RegisterViewController {
 
     @PostMapping("/")
     @Operation(summary = "Register a new user", description = "Register a new user in the Arcus system")
-    public String registerUser() {
+    public Mono<String> registerUser(@RequestBody @Valid RegisterUserRequest registerUserRequest) {
         // TODO: 处理注册用户流程
-        log.info("Registering a new user in the Arcus system");
-        return "userid";
+        log.info("Registering a new user in the Arcus system, {}", registerUserRequest);
+        return Mono.just("user-id-12345");
     }
 }
