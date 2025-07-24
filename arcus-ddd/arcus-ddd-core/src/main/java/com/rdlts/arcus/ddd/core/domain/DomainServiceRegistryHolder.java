@@ -7,7 +7,7 @@ import java.util.logging.Logger;
  * DomainServiceRegistryHolder
  * <p>
  * 用于持有和加载 DomainServiceRegistry 的单例实例。
- * 通过 ServiceLoader 自动发现并加载实现类。
+ * 通过 ServiceLoader (resources/META-INF.services) 自动发现并加载实现类。
  * </p>
  *
  * @author wangjialong

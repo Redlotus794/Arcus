@@ -8,7 +8,7 @@ package com.rdlts.arcus.ddd.core.domain;
  * </p>
  *
  * @author wangjialong
- * @since 2025-06-26
+ * @since 2025-06-26w
  */
 @SuppressWarnings("all")
 public interface DomainServiceRegistry {
