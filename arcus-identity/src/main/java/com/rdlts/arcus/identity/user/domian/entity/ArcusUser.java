@@ -40,6 +40,7 @@ public class ArcusUser implements DomainEntity<ArcusUserId> {
 
     @Nonnull
     @Builder.Default
+    @EqualsAndHashCode.Exclude
     EntityVersion entityVersion = EntityVersion.ZERO_VERSION;
 
     @Nonnull

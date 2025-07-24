@@ -30,6 +30,9 @@ import java.time.LocalDateTime;
 @MappedSuperclass
 public class IdBasedPO {
 
+    // 源自空之女神爱德丝
+    public static final String DEFAULT_CREATED_BY = "Adios";
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -53,7 +56,9 @@ public class IdBasedPO {
     @PrePersist
     protected void onCreate() {
         this.createdTime = LocalDateTime.now();
+        this.createdBy = DEFAULT_CREATED_BY;
         this.updatedTime = LocalDateTime.now();
+        this.updatedBy = DEFAULT_CREATED_BY;
     }
 
     /**
@@ -62,5 +67,6 @@ public class IdBasedPO {
     @PreUpdate
     protected void onUpdate() {
         this.updatedTime = LocalDateTime.now();
+        this.updatedBy = DEFAULT_CREATED_BY;
     }
 }

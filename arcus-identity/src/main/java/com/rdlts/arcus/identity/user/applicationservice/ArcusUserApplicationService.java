@@ -1,10 +1,12 @@
 package com.rdlts.arcus.identity.user.applicationservice;
 
-import com.rdlts.arcus.identity.user.applicationservice.directive.CreateUserCommand;
+import com.rdlts.arcus.identity.user.applicationservice.directive.CreateArcusUserCommand;
 import com.rdlts.arcus.identity.user.domian.valueobject.ArcusUserId;
 import org.apache.commons.lang3.NotImplementedException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import javax.annotation.Nonnull;
 
 /**
  * UserManagementApplicationService
@@ -20,11 +22,12 @@ public class ArcusUserApplicationService {
 
     /**
      * createUser
-     * @param createUserCommand CreateUserCommand
-     * @return ArcusUserId
+     * @param createArcusUserCommand CreateUserCommand
+     * @return ArcusUserId 返回创建的用户的id
      */
     @Transactional(rollbackFor = Exception.class)
-    public ArcusUserId createUser(CreateUserCommand createUserCommand) {
+    @Nonnull
+    public ArcusUserId createUser(CreateArcusUserCommand createArcusUserCommand) {
 //        ArcusUser arcusUser = ArcusUser.builder()
 //                .userId(ArcusUserId.gen())
 //                .encryptedPassword(createUserCommand.encryptedPassword())

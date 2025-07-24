@@ -25,19 +25,4 @@ public class ArcusUserAdapter {
                 .entityVersion(new EntityVersion(arcusUserPO.getEntityVersion()))
                 .build();
     }
-
-    public static ArcusUser adapt(@Nonnull ArcusUserEJO arcusUserEJO) {
-        return ArcusUser.builder()
-                .userId(new ArcusUserId(arcusUserEJO.getUserId()))
-                .profile(new ArcusProfile(arcusUserEJO.getProfileName(), arcusUserEJO.getProfileAvatar()))
-                .encryptedPassword(new ArcusUserEncryptedPassword(
-                        arcusUserEJO.getEncryptedPassword(),
-                        new Pbkdf2Param(
-                            arcusUserEJO.getSalt(),
-                            arcusUserEJO.getIterations(),
-                            arcusUserEJO.getKeyLength())))
-                .email(arcusUserEJO.getEmail() == null ? null : new ArcusUserEmail(arcusUserEJO.getEmail()))
-                .entityVersion(new EntityVersion(arcusUserEJO.getEntityVersion()))
-                .build();
-    }
 }
