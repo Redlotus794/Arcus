@@ -1,6 +1,7 @@
 package com.rdlts.arcus.adv.usertinterface.view;
 
 import com.rdlts.arcus.adv.usertinterface.view.request.RegisterUserRequest;
+import com.rdlts.arcus.common.sharedkernel.response.ArcusRestResponseBody;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
@@ -25,9 +26,8 @@ public class RegisterViewController {
 
     @PostMapping("/")
     @Operation(summary = "Register a new user", description = "Register a new user in the Arcus system")
-    public Mono<String> registerUser(@RequestBody @Valid RegisterUserRequest registerUserRequest) {
-        // TODO: 处理注册用户流程
+    public Mono<ArcusRestResponseBody<String>> registerUser(@RequestBody @Valid RegisterUserRequest registerUserRequest) {
         log.info("Registering a new user in the Arcus system, {}", registerUserRequest);
-        return Mono.just("user-id-12345");
+        return Mono.just(ArcusRestResponseBody.success("user-id-12345"));
     }
 }
