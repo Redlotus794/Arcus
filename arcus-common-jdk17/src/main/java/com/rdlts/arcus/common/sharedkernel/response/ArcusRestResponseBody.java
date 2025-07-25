@@ -1,5 +1,6 @@
-package com.rdlts.arcus.web.response;
+package com.rdlts.arcus.common.sharedkernel.response;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.*;
 
 @Data
@@ -7,11 +8,13 @@ import lombok.*;
 @AllArgsConstructor
 @EqualsAndHashCode
 @Builder
+@Schema(name = "ArcusRestResponseBody", description = "Arcus REST API response body")
 public class ArcusRestResponseBody<T> {
 
     /**
      * Indicates whether the operation was successful.
      */
+    @Schema(name = "success", description = "Indicates whether the operation was successful", example = "true")
     boolean success;
 
     /**
@@ -38,11 +41,13 @@ public class ArcusRestResponseBody<T> {
         状态码是一个四位数字，用于表示业务逻辑处理的结果。
       </pre>
      */
+    @Schema(name = "code", description = "Business return code, can be HTTP status code or custom business code", example = "200")
     int code;
 
     /**
      * payload for response
      */
+    @Schema(name = "data", description = "Payload for the response, can be any type of data", example = "{}")
     T data;
 
     /**
@@ -52,6 +57,7 @@ public class ArcusRestResponseBody<T> {
      * errorMessage gives more context or details about the error.
      * Both fields serve different purposes in API responses.
      */
+    @Schema(name = "errorMessage", description = "Error message when success is false", example = "An error occurred while processing the request")
     String errorMessage;
 
     /**
@@ -71,6 +77,35 @@ public class ArcusRestResponseBody<T> {
                 .code(code)
                 .data(data)
                 .build();
+    }
+
+    /**
+     * Success response with no data
+     *
+     * @see this#failure(String)
+     */
+    public static ArcusRestResponseBody<Void> error(String errorMessage) {
+        return failure(errorMessage);
+    }
+
+    /**
+     * success of response is false, with code and errorMessage, without data
+     * Wrapper for method failure
+     * 
+     * @see this#failure(int, String)
+     */
+    public static ArcusRestResponseBody<Void> error(int code, String errorMessage) {
+        return failure(code, errorMessage);
+    }
+
+    /**
+     * success of response is false, with code and errorMessage data
+     * Wrapper for method failure
+     * 
+     * @see this#failure(int, String, Object) 
+     */
+    public static <T> ArcusRestResponseBody<T> error(int code, String errorMessage, T data) {
+        return failure(code, errorMessage, data);
     }
 
     /**
