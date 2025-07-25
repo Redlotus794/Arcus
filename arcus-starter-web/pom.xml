@@ -23,6 +23,10 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.rdlts.arcus</groupId>
+            <artifactId>arcus-common-jdk17</artifactId>
+        </dependency>
     </dependencies>
 
     <dependencyManagement>
@@ -31,6 +35,13 @@
                 <groupId>com.rdlts.arcus</groupId>
                 <artifactId>arcus-bom</artifactId>
                 <version>1.0.1-SNAPSHOT</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>3.5.0</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>

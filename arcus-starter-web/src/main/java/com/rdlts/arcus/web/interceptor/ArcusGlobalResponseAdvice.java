@@ -1,25 +1,13 @@
 package com.rdlts.arcus.web.interceptor;
 
+import com.rdlts.arcus.common.sharedkernel.response.ArcusRestResponseBody;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
+
 @RestControllerAdvice
 public class ArcusGlobalResponseAdvice {
-
-
-    @Override
-    public boolean supports(MethodParameter returnType, Class<? extends HttpMessageConverter<?>> converterType) {
-        // Avoid double-wrapping
-        return !ArcusRestResponseBody.class.isAssignableFrom(returnType.getParameterType());
-    }
-
-    @Override
-    public Object beforeBodyWrite(Object body, MethodParameter returnType,
-                                  org.springframework.http.MediaType selectedContentType,
-                                  Class<? extends HttpMessageConverter<?>> selectedConverterType,
-                                  ServerHttpRequest request, ServerHttpResponse response) {
-        if (body instanceof ArcusRestResponseBody) {
-            return body;
-        }
-        return ArcusRestResponseBody.success(body);
-    }
 
     @ExceptionHandler(Exception.class)
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
