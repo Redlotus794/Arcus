@@ -11,47 +11,32 @@
     </parent>
 
     <groupId>com.rdlts.arcus</groupId>
-    <artifactId>arcus-starter-webflux</artifactId>
-    <version>1.350.21.0-SNAPSHOT</version> <!-- Spring boot 3.5, jdk 21 -->
+    <artifactId>arcus-starter-webflux-parent</artifactId>
+    <version>1.350.21.0-SNAPSHOT</version>
     <packaging>pom</packaging>
     <url>http://kiseki1029.com</url>
-    <name>Arcus Starter WebFlux</name>
-    <description>WebFlux Starter for Arcus</description>
+    <name>Arcus Starter WebFlux Parent</name>
+    <description>WebFlux Starter Parent POM for Arcus</description>
 
+    <developers>
+        <developer>
+            <name>Wang JiaLong</name>
+            <email>wangjialong02@gmail.com</email>
+            <organization>Saic Motor International</organization>
+            <organizationUrl>https://smil.com</organizationUrl>
+        </developer>
+    </developers>
+    <modules>
+        <module>arcus-common-starter-webflux</module> <!-- 通用组件 -->
+        <module>arcus-adv-webflux</module> <!-- Arcus Acro Design Vue WebFlux -->
+    </modules>
     <properties>
         <java.version>21</java.version> <!-- Based on JDK21 -->
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <arcus.webflux.version>1.0.0-SNAPSHOT</arcus.webflux.version> <!-- Spring boot 3.5, jdk 21 -->
     </properties>
-
-    <dependencies>
-        <dependency>
-            <groupId>com.rdlts.arcus</groupId>
-            <artifactId>arcus-common-jdk17</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-webflux</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-validation</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springdoc</groupId>
-            <artifactId>springdoc-openapi-starter-common</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springdoc</groupId>
-            <artifactId>springdoc-openapi-starter-webflux-ui</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <scope>provided</scope>
-        </dependency>
-    </dependencies>
 
     <dependencyManagement>
         <dependencies>
@@ -99,4 +84,5 @@
             </plugin>
         </plugins>
     </build>
+
 </project>

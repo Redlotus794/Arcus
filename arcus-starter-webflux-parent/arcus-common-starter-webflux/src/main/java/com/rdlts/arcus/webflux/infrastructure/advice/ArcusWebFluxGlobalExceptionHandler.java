@@ -4,8 +4,9 @@ import com.rdlts.arcus.common.sharedkernel.exception.ArcusCommonRuntimeException
 import com.rdlts.arcus.common.sharedkernel.response.ArcusRestResponseBody;
 import com.rdlts.arcus.webflux.infrastructure.adapter.WebExchangeBindExceptionAdapter;
 import lombok.extern.log4j.Log4j2;
+import org.springdoc.core.configuration.SpringDocConfiguration;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.RestControllerAdvice;
+import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.support.WebExchangeBindException;
 import reactor.core.publisher.Mono;
 
@@ -15,7 +16,8 @@ import reactor.core.publisher.Mono;
  * @author wangjialong
  * @since 2025/7/24 14:07
  */
-@RestControllerAdvice
+// 增加全局异常会导致swagger无法打开，需要研究如何处理。
+//@ControllerAdvice(basePackages = "com.rdlts.arcus", basePackageClasses = {SpringDocConfiguration.class})
 @Log4j2
 public class ArcusWebFluxGlobalExceptionHandler {
 
