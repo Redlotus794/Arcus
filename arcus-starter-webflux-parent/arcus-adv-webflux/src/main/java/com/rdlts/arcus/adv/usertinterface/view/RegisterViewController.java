@@ -28,6 +28,9 @@ public class RegisterViewController {
     @Operation(summary = "Register a new user", description = "Register a new user in the Arcus system")
     public Mono<ArcusRestResponseBody<String>> registerUser(@RequestBody @Valid RegisterUserRequest registerUserRequest) {
         log.info("Registering a new user in the Arcus system, {}", registerUserRequest);
+
+
+
         return Mono.just(ArcusRestResponseBody.success("user-id-12345"));
     }
 }

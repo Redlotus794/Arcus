@@ -1,6 +1,9 @@
 package com.rdlts.arcus.adv.applicationservice;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.reactive.function.client.WebClient;
+import reactor.core.publisher.Mono;
 
 /**
  * ArcusIdentityApplicationService
@@ -11,4 +14,17 @@ import org.springframework.stereotype.Service;
 @Service
 public class ArcusIdentityApplicationService {
 
+    private final WebClient webClient;
+
+    @Autowired
+    public ArcusIdentityApplicationService(WebClient.Builder webClientBuilder) {
+        webClient = webClientBuilder.build();
+    }
+
+    public Mono<String> callIdentityApi(String path) {
+        return webClient.get()
+                .uri(path)
+                .retrieve()
+                .bodyToMono(String.class);
+    }
 }
