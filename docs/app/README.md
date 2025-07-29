@@ -17,9 +17,9 @@ Arcus应用服务集群的信息管理文档，包括端口管理
   - 不能使用的端口号：
     - 9090 -> Jenkins 
 
-| 应用程序          | context-path       | 端口使用 |      |
-| ----------------- | ------------------ | -------- | ---- |
-| arcus-adv-webflux | /arcus-adv-webflux | 9000     |      |
-| arcus-identity    | /arcus-identity    | 9001     |      |
-|                   |                    |          |      |
+| 应用程序          | context-path（服务名） | 端口使用 |      |
+| ----------------- | ---------------------- | -------- | ---- |
+| arcus-adv-webflux | /arcus-adv-webflux     | 9000     |      |
+| arcus-identity    | /arcus-identity        | 9001     |      |
+|                   |                        |          |      |
 
