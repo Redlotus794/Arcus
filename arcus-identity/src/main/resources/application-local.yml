@@ -1,0 +1,57 @@
+server:
+  port: 9001
+  servlet:
+    context-path: /arcus-identity
+
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+        namespace: arcus
+        register-enabled: true
+  datasource:
+    url: jdbc:mysql://localhost:3308/arcus-identity?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: arcus
+    password: 123456
+    hikari:
+      minimum-idle: 2
+      maximum-pool-size: 10
+      idle-timeout: 600000
+      max-lifetime: 1800000
+      connection-timeout: 30000
+      pool-name: ArcusIdentityHikariCP
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        naming:
+          physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+        transaction:
+          jta.platform: org.hibernate.service.jta.platform.internal.NoJtaPlatform
+        format_sql: true
+        dialect: org.hibernate.dialect.MySQL8Dialect
+
+dubbo:
+  application:
+    name: arcus-identity
+    qos-enable: true
+    qos-port: 29001
+    qos-accept-foreign-ip: false
+    logger: slf4j
+#    metadata-type: remote
+  registry:
+    address: nacos://localhost:8848?username=nacos&password=nacos
+    register-mode: instance
+    parameters.namespace: arcus
+  protocol:
+    name: dubbo
+    port: 20881
+    timeout: 10000
+  scan:
+    base-packages: com.rdlts.arcus.identity
+#  metadata-report:
+#    address: nacos://localhost:8848?username=nacos&password=nacos&namespace=arcus

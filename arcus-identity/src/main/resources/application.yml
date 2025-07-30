@@ -1,27 +1,4 @@
 spring:
   application:
     name: arcus-identity
-  datasource:
-    url: jdbc:mysql://localhost:3308/arcus-identity?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    username: arcus
-    password: 123456
-    hikari:
-      minimum-idle: 2
-      maximum-pool-size: 10
-      idle-timeout: 600000
-      max-lifetime: 1800000
-      connection-timeout: 30000
-      pool-name: ArcusIdentityHikariCP
-  jpa:
-    hibernate:
-      ddl-auto: update
-    show-sql: true
-    properties:
-      hibernate:
-        naming:
-            physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
-        transaction:
-            jta.platform: org.hibernate.service.jta.platform.internal.NoJtaPlatform
-        format_sql: true
-        dialect: org.hibernate.dialect.MySQL8Dialect
+

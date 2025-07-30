@@ -21,16 +21,21 @@ public class ArcusWebFluxGlobalExceptionHandler {
 
     @ExceptionHandler(RuntimeException.class)
     public Mono<ArcusRestResponseBody<?>> handleRuntimeException(RuntimeException ex) {
-        return Mono.just(ArcusRestResponseBody.error(500, ex.getMessage()));
+        log.error("RuntimeException occurred: {} | {}", ex.getMessage(), ex.getClass().getName());
+        return Mono.just(
+                ArcusRestResponseBody.error(500, ex.getMessage())
+        );
     }
 
     @ExceptionHandler(ArcusCommonRuntimeException.class)
     public Mono<ArcusRestResponseBody<?>> handleArcusCommonRuntimeException(ArcusCommonRuntimeException ex) {
+        log.error("ArcusCommonRuntimeException occurred: {} | {}", ex.getMessage(), ex.getClass().getName());
         return Mono.just(ex.toResponseBody());
     }
 
     @ExceptionHandler(WebExchangeBindException.class)
     public Mono<ArcusRestResponseBody<?>> handleValidationError(WebExchangeBindException webExchangeBindException) {
+        log.error("WebExchangeBindException occurred: {} | {}", webExchangeBindException.getMessage(), webExchangeBindException.getClass().getName());
         return Mono.just(WebExchangeBindExceptionAdapter.toResponseBody(webExchangeBindException));
     }
 

@@ -19,6 +19,7 @@ Arcus Nacos 的用户指导文档。Nacos 是一个易于使用的动态服务�
     <groupId>com.alibaba.cloud</groupId>
     <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
 </dependency>
+
 ```
 
 ### spring-boot配置文件

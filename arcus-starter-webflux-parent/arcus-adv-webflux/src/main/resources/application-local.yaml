@@ -1,0 +1,21 @@
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+        namespace: arcus
+        register-enabled: true
+dubbo:
+  application:
+    name: arcus-adv-webflux
+  consumer:
+    check: false
+    timeout: 10000
+  registry:
+    address: nacos://localhost:8848?username=nacos&password=nacos
+    register-mode: instance
+    parameters.namespace: arcus
+    timeout: 10000
+#  protocol:
+#    name: dubbo
+#    port: 20880
