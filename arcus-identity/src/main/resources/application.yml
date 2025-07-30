@@ -25,8 +25,3 @@ spring:
             jta.platform: org.hibernate.service.jta.platform.internal.NoJtaPlatform
         format_sql: true
         dialect: org.hibernate.dialect.MySQL8Dialect
-
-server:
-  port: 9001
-  servlet:
-    context-path: /arcus-identity

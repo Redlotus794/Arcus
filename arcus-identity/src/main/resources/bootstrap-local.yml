@@ -1,3 +1,8 @@
+server:
+  port: 9001
+  servlet:
+    context-path: /arcus-identity
+
 spring:
   cloud:
     nacos:
@@ -5,3 +10,19 @@ spring:
         server-addr: localhost:8848
         namespace: arcus
         register-enabled: true
+
+dubbo:
+  application:
+    name: arcus-identity
+    qos-enable: true
+    qos-port: 22222
+    qos-accept-foreign-ip: false
+    logger: slf4j
+  registry:
+    address: nacos://localhost:8848
+    register-mode: instance
+  protocol:
+    name: tri
+    port: 50051
+  scan:
+    base-packages: com.rdlts.arcus.identity

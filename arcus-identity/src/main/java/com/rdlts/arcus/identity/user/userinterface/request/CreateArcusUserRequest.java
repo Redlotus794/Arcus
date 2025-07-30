@@ -1,6 +1,6 @@
 package com.rdlts.arcus.identity.user.userinterface.request;
 
-import com.rdlts.arcus.identity.user.applicationservice.directive.CreateArcusUserCommand;
+import com.rdlts.arcus.identity.user.applicationservice.command.CreateArcusUserCommand;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotBlank;
 import lombok.*;

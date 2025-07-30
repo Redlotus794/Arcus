@@ -1,4 +1,4 @@
-package com.rdlts.arcus.identity.user.applicationservice.directive;
+package com.rdlts.arcus.identity.user.applicationservice.command;
 
 import com.rdlts.arcus.ddd.core.domain.cqrs.Command;
 
