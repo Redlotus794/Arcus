@@ -27,6 +27,6 @@ package com.rdlts.arcus.ddd.core.domain.cqrs;
  * @author wangjialong
  * @since 2025/7/22 15:07
  */
-interface CQRSArchitecture {
+interface CQRS {
 
 }
