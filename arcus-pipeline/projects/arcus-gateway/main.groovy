@@ -3,9 +3,11 @@
 pipeline {
     agent any
 
+    libraries {
+        lib('shared-libs@main')
+    }
+
     options {
-        // 从当前 SCM 加载共享库
-        library "shared-libs@main"
         // 配置构建保留策略
         buildDiscarder(logRotator(numToKeepStr: '1'))
     }
