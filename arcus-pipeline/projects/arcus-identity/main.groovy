@@ -9,8 +9,6 @@ pipeline {
         IMAGE_TAG = "lts"
         // K8s 命名空间
         NAMESPACE = "arcus"
-        // K8s 部署配置
-        K8S_DEPLOY_CONFIG = "k8s/deployment.yaml"
     }
 
     // 配置构建保留策略
@@ -23,6 +21,15 @@ pipeline {
     }
 
     stages {
+        stage('Load Config') {
+            steps {
+                script {
+                    def props = readProperties file: 'arcus-pipeline/config/global-vars.config'
+                    env.K8S_DEPLOY_CONFIG = props.K8S_DEPLOY_CONFIG
+                }
+            }
+        }
+
         stage('环境验证') {
             steps {
                 script {

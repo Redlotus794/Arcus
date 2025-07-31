@@ -18,6 +18,14 @@ pipeline {
     }
 
     stages {
+        stage('Load Config') {
+            steps {
+                script {
+                    loadGlobalVars()
+                }
+            }
+        }
+
         stage('环境验证') {
             steps {
                 script {
