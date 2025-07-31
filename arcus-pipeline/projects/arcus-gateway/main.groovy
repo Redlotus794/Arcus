@@ -3,6 +3,11 @@
 pipeline {
     agent any
 
+    properties {
+        // 从当前 SCM 加载共享库
+        library "shared-libs@main"
+    }
+
     environment {
         IMAGE_NAME = 'arcus-gateway'
         IMAGE_TAG = "lts"
