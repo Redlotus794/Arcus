@@ -4,7 +4,7 @@ pipeline {
     agent any
 
     libraries {
-        lib('shared-libs@main')
+        lib('arcus-pipeline/shared-libs@main')
     }
 
     options {
