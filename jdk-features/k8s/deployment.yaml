@@ -7,7 +7,7 @@ metadata:
   labels:
     app: jdk-features
 spec:
-  replicas: 1
+  replicas: 0
   selector:
     matchLabels:
       app: jdk-features
@@ -16,7 +16,7 @@ spec:
       labels:
         app: jdk-features
       annotations:
-        last-updated: "2025-06-16T00:00:00Z"  # 更新为当前时间
+        last-updated: "2025-07-31T00:00:00Z"  # 更新为当前时间
     spec:
       containers:
         - name: jdk-features
