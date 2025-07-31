@@ -81,9 +81,7 @@
   > helm version
   version.BuildInfo{Version:"v3.18.2", GitCommit:"04cad4610054e5d546aa5c5d9c1b1d5cf68ec1f8", GitTreeState:"clean", GoVersion:"go1.24.3"}
   ```
-
   
-
 - **数据库**: 
 
   数据库采用本地docker部署的形式:
@@ -138,21 +136,19 @@
 
     IDEA Jenkins Controller集成
 
-    
-
 
 ## 🧩 技术栈使用
 
 Arcus 提供技术栈列表
 
-| 组件                 | 版本               | 部署                  | 应用信息                |
-| -------------------- |------------------|---------------------|---------------------|
-| Maven                | 3.9.4 (Java 21+) | Apache 官网           |                     |
-| Java                 | 21               | JVM                 |                     |
-| Spring Cloud Gateway | 4.3              | Arcus-gateway k8s部署 |                     |
-| Kubesphere           | 4.1.3            | helm                | Console Port: 30880 |
-| Ingress Controller   |                  | helm                | Port: 30080         |
-| OpenAPI              | 2.5.0            | maven               |                     |
+| 组件                 | 版本               | 部署                  |
+| -------------------- |------------------|---------------------|
+| Maven                | 3.9.4 (Java 21+) | Apache 官网           |
+| Java                 | 21               | JVM                 |
+| Spring Cloud Gateway | 4.3              | Arcus-gateway k8s部署 |
+| Kubesphere           | 4.1.3            | helm                |
+| Ingress Controller   |                  | helm                |
+| OpenAPI              | 2.5.0            | maven               |
 
 根据不同项目的内容会选择不同的编程语言和技术栈。  
 参考各项目的`README.md` 文件。

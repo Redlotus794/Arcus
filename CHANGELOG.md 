@@ -1,5 +1,13 @@
 # Change Log
 
+### 2025-07-31
+- kubesphere部署
+    - 部署arcus-identity
+    - 部署arcus-adv-webflux
+
+### 2025-07-30
+- arcus-adv-webflux 和 arcus-identity 的dubbo连通性测试成功
+
 ### 2025-06-04
 - 初始化项目
 - 提交jdk-feature java项目
