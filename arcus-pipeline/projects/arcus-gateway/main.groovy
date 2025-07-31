@@ -21,7 +21,7 @@ pipeline {
         stage('环境验证') {
             steps {
                 script {
-                    envApp()
+                    envVerification()
                 }
             }
         }
