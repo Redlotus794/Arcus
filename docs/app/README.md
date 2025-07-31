@@ -1,25 +1,13 @@
-# Arcus 应用服务管理
+# App - 应用程序
 
-Arcus应用服务集群的信息管理文档，包括端口管理
+本文档管理所有基于Arcus Project的应用程序信息，包括端口、服务名等。
 
+## CI/CD
 
+> [CI/CD](./cicd.md)
 
-## 端口管理
+## Arcus Project
 
-应用服务程序在本地启动时需要保证端口不冲突。在容器中启动时，可以不设置端口，保持80端口的访问。
+> [Arcus Project](./arcus_project.md)
 
-如果应用程序本身含有默认的端口启动，如grpc的50051，nacos的8848等，则会优先使用应用的默认端口号。
-
-如果是web程序，则按以下规则使用端口号：
-
-- 前端项目 (5000 - 5999) ，例如 arco design vue （vite创建）是 5173， 其余的项目可以从5000开始
-- 后端项目 (9000 - 9999)
-  - 不能使用的端口号：
-    - 9090 -> Jenkins 
-
-| 应用程序          | context-path（服务名） | server port | dubbo qos port | dubbo port |
-| ----------------- | ---------------------- |-------------|----------------|------------|
-| arcus-adv-webflux | /arcus-adv-webflux     | 9000        | 29000          | /          |
-| arcus-identity    | /arcus-identity        | 9001        | 29001          | 20881      |
-|                   |                        |             |                |            |
-
+## Arcus Spring Cloud Alibaba KubeSphere

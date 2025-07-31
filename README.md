@@ -27,7 +27,11 @@
 - Memory: 32 GB 2667 MHz DDR4
 - SSD 1TB
 
+## 💻 Arcus 应用程序
 
+- [应用服务](docs/app/README.md)
+  - [Arcus Project](docs/app/arcus_project.md)
+  - [CI/CD](docs/app/ci_cd.md) 
 
 ## 🥦 基础设施
 
@@ -175,8 +179,3 @@ Arcus 提供技术栈列表
 ## 🎹 项目规范
 
 - [Arcus Convention](docs/convention/README.md)
-
-
-## 💻 应用程序
-
-- [应用服务](docs/app/README.md)
