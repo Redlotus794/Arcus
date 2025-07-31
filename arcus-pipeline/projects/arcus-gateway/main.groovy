@@ -2,13 +2,8 @@ pipeline {
     agent any
 
     environment {
-        // 从项目路径动态提取服务名
-        IMAGE_NAME = 'arcus-identity'
+        IMAGE_NAME = 'arcus-gateway'
         IMAGE_TAG = "lts"
-        // K8s 命名空间
-        NAMESPACE = "arcus"
-        // K8s 部署配置
-        K8S_DEPLOY_CONFIG = "k8s/deployment.yaml"
     }
 
     // 配置构建保留策略
@@ -41,16 +36,6 @@ pipeline {
                 """
             }
         }
-
-        stage('Checkout') {
-            steps {
-                echo "=== 拉取代码 ==="
-                // 假设代码已经被 Jenkins Checkout 插件拉取
-                // 如果需要手动拉取，可以使用 git 命令
-                // git url: 'your-git-repo-url', branch: 'main'
-            }
-        }
-
         stage('Build') {
             steps {
                 // 拉取SIT分支代码
@@ -61,7 +46,7 @@ pipeline {
                 sh 'ls -la'
 
                 // 切换到arcus-gateway目录执行Maven命令
-                dir('arcus-identity') {
+                dir('arcus-gateway') {
                     sh 'ls -la'  // 显示项目目录内容，确认pom.xml存在
                     sh "mvn -Dmaven.test.failure.ignore=true clean package"
                 }
@@ -70,8 +55,8 @@ pipeline {
             post {
                 success {
                     // 更新路径模式以匹配子目录中的测试报告和JAR文件
-                    junit 'arcus-identity/target/surefire-reports/TEST-*.xml'
-                    archiveArtifacts 'arcus-identity/target/*.jar'
+                    junit 'arcus-gateway/target/surefire-reports/TEST-*.xml'
+                    archiveArtifacts 'arcus-gateway/target/*.jar'
                 }
             }
         }
@@ -79,12 +64,12 @@ pipeline {
         stage('Docker Build') {
             steps {
                 // 切换到项目目录
-                dir('arcus-identity') {
+                dir('arcus-gateway') {
                     sh """
                         # 使用完整路径执行Docker命令
                         echo "构建Docker镜像..."
-                        docker build -t arcus-identity:${IMAGE_TAG} .
-
+                        docker build -t arcus-gateway:${IMAGE_TAG} .
+                        
                         # 查看已构建的镜像
                         docker images
                     """
@@ -95,7 +80,7 @@ pipeline {
         stage('Deploy to K8s') {
             steps {
                 // 切换到项目目录
-                dir('arcus-identity') {
+                dir('arcus-gateway') {
                     script {
                         def timestamp = new Date().format("yyyy-MM-dd'T'HH:mm:ss'Z'", TimeZone.getTimeZone("UTC"))
                         // 动态替换 deployment.yaml 中的注解
