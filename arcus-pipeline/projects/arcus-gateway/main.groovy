@@ -18,7 +18,7 @@ pipeline {
     }
 
     stages {
-        stage('Load Config') {
+        stage('加载全局配置') {
             steps {
                 script {
                     loadGlobalVars()
@@ -93,7 +93,7 @@ pipeline {
 
                     sh """
                         # 执行kubectl命令
-                        kubectl apply -f k8s/deployment.yaml
+                        kubectl apply -f ${K8S_DEPLOY_CONFIG}
                     """
                 }
             }
