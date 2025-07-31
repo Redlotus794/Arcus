@@ -3,19 +3,16 @@
 pipeline {
     agent any
 
-    properties {
+    options {
         // 从当前 SCM 加载共享库
         library "shared-libs@main"
+        // 配置构建保留策略
+        buildDiscarder(logRotator(numToKeepStr: '1'))
     }
 
     environment {
         IMAGE_NAME = 'arcus-gateway'
         IMAGE_TAG = "lts"
-    }
-
-    // 配置构建保留策略
-    options {
-        buildDiscarder(logRotator(numToKeepStr: '1'))
     }
 
     tools {
