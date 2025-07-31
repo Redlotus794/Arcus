@@ -1,9 +1,7 @@
+@Library('shared-libs') _
+
 pipeline {
     agent any
-
-    libraries {
-        lib('arcus-pipeline/shared-libs@main')
-    }
 
     options {
         // 配置构建保留策略
