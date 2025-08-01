@@ -87,16 +87,10 @@ def call(Map config) {
 
             stage('Build') {
                 steps {
-                    script {
-                        // 清理工作空间并重新克隆
-                        deleteDir()
+                    git branch: "${GIT_BRANCH}",
+                            url: "${GIT_REPO}"
 
-                        // 使用更明确的 Git 克隆方式
-                        sh """
-                            git clone --branch ${env.GIT_BRANCH} ${env.GIT_REPO} .
-                            ls -la
-                        """
-                    }
+                    sh 'ls -la'
 
                     dir(config.projectDir) {
                         sh 'ls -la'
