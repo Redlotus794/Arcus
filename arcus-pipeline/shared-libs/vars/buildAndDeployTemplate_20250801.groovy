@@ -16,28 +16,37 @@ def call(Map config) {
         }
 
         stages {
+            stage('加载全局配置') {
+                steps {
+                    script {
+                        loadGlobalVars()
+                    }
+                }
+            }
+
             stage('初始化配置') {
                 steps {
                     script {
+                        // 必填校验
+                        if (!config.imageName) {
+                            error("imageName is required")
+                        }
+
+                        if (!config.projectDir) {
+                            error("projectDir is required")
+                        }
+
                         // 在这里设置环境变量
                         env.IMAGE_NAME = config.imageName
                         env.IMAGE_TAG = config.imageTag ?: "lts"
                         env.NAMESPACE = config.namespace ?: "arcus"
+                        env.GIT_REPO = config.gitRepo ?: ${ARCUS_GIT_REPO_URL}
                         env.GIT_BRANCH = config.gitBranch ?: "main"
 
                         echo "IMAGE_NAME: ${env.IMAGE_NAME}"
                         echo "IMAGE_TAG: ${env.IMAGE_TAG}"
                         echo "NAMESPACE: ${env.NAMESPACE}"
                         echo "GIT_BRANCH: ${env.GIT_BRANCH}"
-                    }
-                }
-            }
-
-
-            stage('加载全局配置') {
-                steps {
-                    script {
-                        loadGlobalVars()
                     }
                 }
             }
@@ -53,7 +62,7 @@ def call(Map config) {
             stage('Build') {
                 steps {
                     git branch: "${GIT_BRANCH}",
-                            url: 'https://github.com/Redlotus794/Arucs.git'
+                            url: "${GIT_REPO}"
 
                     sh 'ls -la'
 

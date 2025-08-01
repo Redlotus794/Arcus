@@ -4,6 +4,8 @@
 // 返回一个包含所有全局变量的 Map
 
 return [
+    ARCUS_GIT_REPO_URL: "https://github.com/Redlotus794/Arucs.git",
     // K8s 部署配置
-    K8S_DEPLOY_CONFIG: "k8s/deployment.yaml"
+    K8S_DEPLOY_CONFIG: "k8s/deployment.yaml",
+
 ]
