@@ -1,0 +1,54 @@
+# ================= Deployment =================
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: arcus-adv-webflux
+  namespace: arcus
+  labels:
+    app: arcus-adv-webflux
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: arcus-adv-webflux
+  template:
+    metadata:
+      labels:
+        app: arcus-adv-webflux
+      annotations:
+        last-updated: "2025-08-01T00:00:00Z"  # 更新为当前时间
+    spec:
+      containers:
+        - name: arcus-adv-webflux
+          image: arcus-adv-webflux:lts
+          ports:
+            - containerPort: 8080
+          env:
+            - name: SPRING_PROFILES_ACTIVE
+              value: "${SPRING_ACTIVE_PROFILES}"
+          resources:
+            limits:
+              memory: "512Mi"
+              cpu: "500m"
+          imagePullPolicy: Never # 使用本地镜像
+
+---
+# ================= Service =================
+apiVersion: v1
+kind: Service
+metadata:
+  name: arcus-adv-webflux
+  namespace: arcus
+  labels:
+    app: arcus-adv-webflux
+spec:
+  type: ClusterIP
+  ports:
+    - port: 8080
+      targetPort: 8080
+      protocol: TCP
+      name: http
+  selector:
+    app: arcus-adv-webflux
+
+---
