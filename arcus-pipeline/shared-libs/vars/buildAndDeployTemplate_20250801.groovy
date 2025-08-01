@@ -4,10 +4,6 @@ def call(Map config) {
         agent any
 
         environment {
-            IMAGE_NAME = config.imageName
-            IMAGE_TAG = config.imageTag ?: "lts"
-            NAMESPACE = config.namespace ?: "arcus"
-            GIT_BRANCH = config.gitBranch ?: "main"
         }
 
         options {
@@ -19,6 +15,24 @@ def call(Map config) {
         }
 
         stages {
+            stage('初始化配置') {
+                steps {
+                    script {
+                        // 在这里设置环境变量
+                        env.IMAGE_NAME = config.imageName
+                        env.IMAGE_TAG = config.imageTag ?: "lts"
+                        env.NAMESPACE = config.namespace ?: "arcus"
+                        env.GIT_BRANCH = config.gitBranch ?: "main"
+
+                        echo "IMAGE_NAME: ${env.IMAGE_NAME}"
+                        echo "IMAGE_TAG: ${env.IMAGE_TAG}"
+                        echo "NAMESPACE: ${env.NAMESPACE}"
+                        echo "GIT_BRANCH: ${env.GIT_BRANCH}"
+                    }
+                }
+            }
+
+
             stage('加载全局配置') {
                 steps {
                     script {
