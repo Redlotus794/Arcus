@@ -4,6 +4,7 @@ def call(Map config) {
         agent any
 
         environment {
+            VERSION = "20250801"
         }
 
         options {
