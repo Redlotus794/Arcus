@@ -70,6 +70,7 @@ def call(Map config) {
                         echo "IMAGE_NAME: ${env.IMAGE_NAME}"
                         echo "IMAGE_TAG: ${env.IMAGE_TAG}"
                         echo "NAMESPACE: ${env.NAMESPACE}"
+                        echo "GIT_REPO: ${env.GIT_REPO}"
                         echo "GIT_BRANCH: ${env.GIT_BRANCH}"
                         echo "PROFILES: ${env.PROFILES}"
                     }
@@ -86,8 +87,11 @@ def call(Map config) {
 
             stage('Build') {
                 steps {
-                    git branch: "${GIT_BRANCH}",
-                            url: "${GIT_REPO}"
+                    checkout([
+                        $class: 'GitSCM',
+                        branches: [[name: "*/${GIT_BRANCH}"]],
+                        userRemoteConfigs: [[url: "${GIT_REPO}"]]
+                    ])
 
                     sh 'ls -la'
 
@@ -144,5 +148,4 @@ def call(Map config) {
         }
     }
 }
-
 
