@@ -23,6 +23,9 @@ spec:
           image: arcus-identity:1.0.0-SNAPSHOT
           ports:
             - containerPort: 8080
+          env:
+            - name: SPRING_PROFILES_ACTIVE
+              value: "${SPRING_ACTIVE_PROFILES:default}"
           resources:
             limits:
               memory: "512Mi"

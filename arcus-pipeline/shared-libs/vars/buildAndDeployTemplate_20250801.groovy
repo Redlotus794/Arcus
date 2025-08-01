@@ -1,4 +1,19 @@
 // arcus-pipeline/shared-libs/vars/buildAndDeployTemplate.groovy
+
+/**
+ * 可选参数列表
+ * - imageName: Docker 镜像名称，必填
+ * - imageTag: Docker 镜像标签，默认为 "lts"
+ * - namespace: Kubernetes 命名空间，默认为 "arcus"
+ * - gitRepo: Git 仓库地址，默认为环境变量 ARCUS_GIT_REPO_URL
+ * - gitBranch: Git 分支，默认为 "main"
+ * - projectDir: 项目目录，必填
+ * - profiles: Spring Profiles，必填，可以是字符串或字符串列表
+ *
+ * @param config
+ * @return
+ */
+
 def call(Map config) {
     pipeline {
         agent any
@@ -36,12 +51,17 @@ def call(Map config) {
                             error("projectDir is required")
                         }
 
+                        if (!config.profiles) {
+                            error("profiles is required")
+                        }
+
                         // 在这里设置环境变量
                         env.IMAGE_NAME = config.imageName
                         env.IMAGE_TAG = config.imageTag ?: "lts"
                         env.NAMESPACE = config.namespace ?: "arcus"
                         env.GIT_REPO = config.gitRepo ?: env.ARCUS_GIT_REPO_URL ?: ""
                         env.GIT_BRANCH = config.gitBranch ?: "main"
+                        env.PROFILES = config.profiles instanceof List ? config.profiles.join(',') : config.profiles
 
                         if (!env.GIT_REPO) {
                             error("gitRepo is required")
@@ -51,6 +71,7 @@ def call(Map config) {
                         echo "IMAGE_TAG: ${env.IMAGE_TAG}"
                         echo "NAMESPACE: ${env.NAMESPACE}"
                         echo "GIT_BRANCH: ${env.GIT_BRANCH}"
+                        echo "PROFILES: ${env.PROFILES}"
                     }
                 }
             }
@@ -110,12 +131,17 @@ def call(Map config) {
                             """
                         }
 
-                        sh """
-                            kubectl apply -f ${K8S_DEPLOY_CONFIG}
-                        """
+                        script {
+                            // 设置环境变量，使用 profiles 而不是 environment
+                            sh """
+                                export SPRING_ACTIVE_PROFILES=${env.PROFILES}
+                                envsubst < ${K8S_DEPLOY_CONFIG} | kubectl apply -f -
+                            """
+                        }
                     }
                 }
             }
         }
     }
 }
+
