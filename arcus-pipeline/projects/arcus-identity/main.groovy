@@ -21,11 +21,10 @@ pipeline {
     }
 
     stages {
-        stage('Load Config') {
+        stage('加载全局配置') {
             steps {
                 script {
-                    def props = readProperties file: 'arcus-pipeline/config/global-vars.config'
-                    env.K8S_DEPLOY_CONFIG = props.K8S_DEPLOY_CONFIG
+                    loadGlobalVars()
                 }
             }
         }
