@@ -52,7 +52,7 @@ def call(Map config) {
                         }
 
                         if (!config.profiles) {
-                            error("profiles is required")
+                            config.profiles = 'default' // 默认值
                         }
 
                         // 在这里设置环境变量
@@ -144,4 +144,5 @@ def call(Map config) {
         }
     }
 }
+
 
