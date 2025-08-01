@@ -4,8 +4,6 @@ server:
 spring:
   application:
     name: arcus-adv-webflux
-  webflux:
-    base-path: /arcus-adv-webflux # webflux base path
 
 springdoc:
   api-docs:

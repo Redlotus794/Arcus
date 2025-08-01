@@ -1,4 +1,6 @@
 spring:
+  webflux:
+    base-path: /arcus-adv-webflux # webflux base path
   cloud:
     nacos:
       discovery:
