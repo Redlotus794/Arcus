@@ -7,7 +7,7 @@ metadata:
   labels:
     app: arcus-identity
 spec:
-  replicas: 0
+  replicas: 1
   selector:
     matchLabels:
       app: arcus-identity
@@ -20,12 +20,12 @@ spec:
     spec:
       containers:
         - name: arcus-identity
-          image: arcus-identity:1.0.0-SNAPSHOT
+          image: arcus-identity:lts
           ports:
             - containerPort: 8080
           env:
             - name: SPRING_PROFILES_ACTIVE
-              value: "${SPRING_ACTIVE_PROFILES:default}"
+              value: "sit"
           resources:
             limits:
               memory: "512Mi"
