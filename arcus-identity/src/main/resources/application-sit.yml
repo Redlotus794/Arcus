@@ -1,0 +1,12 @@
+spring:
+  config:
+    import: "nacos:arcus-identity-sit"
+  cloud:
+    nacos:
+      config:
+        server-addr: localhost:30848
+        namespace: arcus
+        group: DEFAULT_GROUP
+        file-extension: yml
+
+

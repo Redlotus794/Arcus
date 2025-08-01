@@ -42,7 +42,6 @@ dubbo:
     qos-port: 29001
     qos-accept-foreign-ip: false
     logger: slf4j
-#    metadata-type: remote
   registry:
     address: nacos://localhost:8848?username=nacos&password=nacos
     register-mode: instance
@@ -53,5 +52,3 @@ dubbo:
     timeout: 10000
   scan:
     base-packages: com.rdlts.arcus.identity
-#  metadata-report:
-#    address: nacos://localhost:8848?username=nacos&password=nacos&namespace=arcus

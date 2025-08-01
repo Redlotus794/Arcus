@@ -15,9 +15,16 @@ Arcus Nacos 的用户指导文档。Nacos 是一个易于使用的动态服务�
 
 ### maven引入
 ```xml
+<!-- 如果需要注册中心功能 -->
 <dependency>
     <groupId>com.alibaba.cloud</groupId>
     <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+</dependency>
+
+<!-- 如果需要配置中心功能 -->
+<dependency>
+    <groupId>com.alibaba.cloud</groupId>
+    <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
 </dependency>
 
 ```
@@ -43,3 +50,15 @@ public class ArcusIdentityApplication {
     }
 }
 ```
+
+### 在Kubernetes中验证nacos是否可以正常工作
+```bash
+curl -s http://nacos-headless:8848/nacos/v1/ns/service/list?pageNo=1\&pageSize=10\&namespaceId=arcus | jq
+```
+返回：
+```json
+{
+  "count":1,
+  "doms":["arcus-gateway"]
+}
+``` 
