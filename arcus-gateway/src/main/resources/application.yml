@@ -12,6 +12,18 @@ spring:
                 - Path=/jdk-features/**
               filters:
                 - StripPrefix=1
+            - id: arcus-identity-route
+              uri: lb://arcus-identity
+              predicates:
+                - Path=/identity/**
+              filters:
+                - StripPrefix=1
+            - id: arcus-adv-webflux-route
+              uri: lb://arcus-adv-webflux
+              predicates:
+                - Path=/adv-webflux/**
+              filters:
+                - StripPrefix=1
     nacos:
       discovery:
         server-addr: nacos-headless:8848
