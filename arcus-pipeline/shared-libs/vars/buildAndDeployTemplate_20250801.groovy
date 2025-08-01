@@ -96,10 +96,14 @@ def call(Map config) {
 
                         echo "Original GIT_BRANCH: ${env.GIT_BRANCH}"
                         echo "Clean branch: ${cleanBranch}"
-                    }
 
-                    git branch: cleanBranch,
-                            url: "${GIT_REPO}"
+                        // git checkout 也在 script 块中执行
+                        checkout([
+                                $class: 'GitSCM',
+                                branches: [[name: "*/${cleanBranch}"]],
+                                userRemoteConfigs: [[url: env.GIT_REPO]]
+                        ])
+                    }
 
                     sh 'ls -la'
 
