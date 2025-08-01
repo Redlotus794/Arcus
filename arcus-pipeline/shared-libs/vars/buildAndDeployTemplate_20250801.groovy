@@ -40,8 +40,12 @@ def call(Map config) {
                         env.IMAGE_NAME = config.imageName
                         env.IMAGE_TAG = config.imageTag ?: "lts"
                         env.NAMESPACE = config.namespace ?: "arcus"
-                        env.GIT_REPO = config.gitRepo ?: ${ARCUS_GIT_REPO_URL}
+                        env.GIT_REPO = config.gitRepo ?: env.ARCUS_GIT_REPO_URL ?: ""
                         env.GIT_BRANCH = config.gitBranch ?: "main"
+
+                        if (!env.GIT_REPO) {
+                            error("gitRepo is required")
+                        }
 
                         echo "IMAGE_NAME: ${env.IMAGE_NAME}"
                         echo "IMAGE_TAG: ${env.IMAGE_TAG}"
