@@ -87,7 +87,18 @@ def call(Map config) {
 
             stage('Build') {
                 steps {
-                    git branch: "${GIT_BRANCH}",
+                    script {
+                        // 清理分支名称，移除origin/前缀
+                        def cleanBranch = env.GIT_BRANCH
+                        if (cleanBranch.startsWith('origin/')) {
+                            cleanBranch = cleanBranch.substring(7) // 移除 "origin/"
+                        }
+
+                        echo "Original GIT_BRANCH: ${env.GIT_BRANCH}"
+                        echo "Clean branch: ${cleanBranch}"
+                    }
+
+                    git branch: cleanBranch,
                             url: "${GIT_REPO}"
 
                     sh 'ls -la'
