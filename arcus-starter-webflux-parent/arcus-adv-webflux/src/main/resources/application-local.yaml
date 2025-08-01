@@ -5,6 +5,9 @@ spring:
         server-addr: localhost:8848
         namespace: arcus
         register-enabled: true
+      config:
+        import-check:
+          enabled: false
 dubbo:
   application:
     name: arcus-adv-webflux

@@ -1,0 +1,12 @@
+spring:
+  config:
+    import: "nacos:arcus-adv-webflux-sit"
+  cloud:
+    nacos:
+      config:
+        server-addr: http://nacos-headless:8848
+        namespace: arcus
+        group: DEFAULT_GROUP
+        file-extension: yml
+
+
