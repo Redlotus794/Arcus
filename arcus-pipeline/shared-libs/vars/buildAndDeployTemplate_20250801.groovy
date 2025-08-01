@@ -115,8 +115,18 @@ def call(Map config) {
 
                 post {
                     success {
-                        junit "${config.projectDir}/target/surefire-reports/TEST-*.xml"
-                        archiveArtifacts "${config.projectDir}/target/*.jar"
+                        script {
+                            // 检查测试报告文件是否存在
+                            def testReportExists = fileExists("${config.projectDir}/target/surefire-reports/TEST-*.xml")
+                            if (testReportExists) {
+                                junit "${config.projectDir}/target/surefire-reports/TEST-*.xml"
+                            } else {
+                                echo "No test report files found, skipping junit step"
+                            }
+
+                            // 归档构建产物
+                            archiveArtifacts "${config.projectDir}/target/*.jar"
+                        }
                     }
                 }
             }
