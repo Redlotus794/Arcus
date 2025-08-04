@@ -20,8 +20,8 @@ Arcus应用服务集群的信息管理文档，包括端口管理
     - 9090 -> Jenkins 
 
 | 应用程序          | context-path（服务名） | server port | dubbo qos port | dubbo port |
-| ----------------- | ---------------------- |-------------|----------------|------------|
-| arcus-adv-webflux | /arcus-adv-webflux     | 9000        | 29000          | /          |
-| arcus-identity    | /arcus-identity        | 9001        | 29001          | 20881      |
-|                   |                        |             |                |            |
+| ----------------- | ---------------------- |-------------|----------------|-------|
+| arcus-adv-webflux | /arcus-adv-webflux     | 9000        | 29000          | /     |
+| arcus-identity    | /arcus-identity        | 9001        | 29001          | 20881 |
+|                   |                        |             |                |       |
 

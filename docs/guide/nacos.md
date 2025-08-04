@@ -53,7 +53,7 @@ public class ArcusIdentityApplication {
 
 ### 在Kubernetes中验证nacos是否可以正常工作
 ```bash
-curl -s http://nacos-headless:8848/nacos/v1/ns/service/list?pageNo=1\&pageSize=10\&namespaceId=arcus | jq
+curl -s 'http://nacos-headless:8848/nacos/v1/ns/service/list?pageNo=1&pageSize=10&namespaceId=arcus'
 ```
 返回：
 ```json

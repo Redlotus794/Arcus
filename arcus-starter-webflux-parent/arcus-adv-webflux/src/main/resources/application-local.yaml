@@ -1,26 +1,12 @@
 spring:
-  webflux:
-    base-path: /arcus-adv-webflux # webflux base path
+  config:
+    import: "nacos:arcus-adv-webflux-local"
   cloud:
     nacos:
-      discovery:
-        server-addr: localhost:8848
-        namespace: arcus
-        register-enabled: true
       config:
-        import-check:
-          enabled: false
-dubbo:
-  application:
-    name: arcus-adv-webflux
-  consumer:
-    check: false
-    timeout: 10000
-  registry:
-    address: nacos://localhost:8848?username=nacos&password=nacos
-    register-mode: instance
-    parameters.namespace: arcus
-    timeout: 10000
-#  protocol:
-#    name: dubbo
-#    port: 20880
+        server-addr: http://localhost:8848
+        namespace: arcus-local
+        group: DEFAULT_GROUP
+        file-extension: yml
+
+
