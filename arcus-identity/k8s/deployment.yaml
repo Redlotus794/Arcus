@@ -48,6 +48,10 @@ spec:
       targetPort: 8080
       protocol: TCP
       name: http
+    - port: 20881
+      targetPort: 20881
+      protocol: TCP
+      name: dubbo
   selector:
     app: arcus-identity
 
