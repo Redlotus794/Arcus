@@ -32,7 +32,7 @@ import javax.annotation.Nonnull;
  * @author wangjialong
  */
 @SuppressWarnings("unused")
-public interface DomainAggregate<T extends DomainAggregateRoot> {
+public interface DomainAggregate<T extends DomainAggregateRoot<?>> {
 
     /**
      * 聚合根
