@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  dubbo-admin:
+    image: apache/dubbo-admin:latest
+    container_name: dubbo-admin
+    restart: always
+    ports:
+      - "6001:8080"  # 访问地址：http://localhost:6001
+    environment:
+      # 连接本机已存在的nacos-quick服务
+      # 注意：若nacos-quick在Docker容器中，需用宿主机IP而非127.0.0.1
+      - admin.registry.address=nacos://host.docker.internal:8848?namespace=public
+      - admin.config-center=nacos://host.docker.internal:8848?namespace=public
+      - admin.metadata-report.address=nacos://host.docker.internal:8848?namespace=public
+      - dubbo.metadata-service.port=6002
+      - logging.level.org.apache.dubbo=INFO
+    networks:
+      - dubbo-network
+
+# 自定义网络（可选，若nacos-quick在宿主机，此网络仅用于Dubbo Admin内部）
+networks:
+  dubbo-network:
+    driver: bridge

@@ -95,3 +95,19 @@ public class DubboReferenceConfig {
     }
 }
 ```
+
+## 8. Dubbo Admin控制台安装
+
+```shell
+# 拉取最新版本镜像（推荐 0.5+ 版本，适配 Dubbo 3.x）
+docker pull apache/dubbo-admin:latest
+
+# 启动容器，指定注册中心地址（以 Nacos 为例）
+docker run -d \
+  -p 6001:8080 \  # 映射端口（宿主端口:容器端口）
+  -e admin.registry.address=nacos://127.0.0.1:8848 \  # 注册中心地址
+  -e admin.config-center=nacos://127.0.0.1:8848 \    # 配置中心地址（与注册中心一致即可）
+  -e admin.metadata-report.address=nacos://127.0.0.1:8848 \  # 元数据中心地址
+  --name dubbo-admin \
+  apache/dubbo-admin:latest
+```
