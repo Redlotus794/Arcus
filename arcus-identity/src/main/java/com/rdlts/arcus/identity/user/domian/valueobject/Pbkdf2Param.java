@@ -13,6 +13,8 @@ public record Pbkdf2Param(String salt,
                           int iterations,
                           int keyLength) {
 
+    public static final Pbkdf2Param DEFAULT = new Pbkdf2Param("defaultSalt", 100, 256);
+
     public Pbkdf2Param {
         if (salt == null || salt.isBlank()) {
             throw new IllegalArgumentException("Salt cannot be null or blank");

@@ -40,14 +40,13 @@ public class RegisterViewController {
     public Mono<ArcusRestResponseBody<String>> registerUser(@RequestBody @Valid RegisterUserRequest registerUserRequest) {
         log.info("Registering a new user in the Arcus system, {}", registerUserRequest);
 
-        arcusUserDubboService.registerUser(RegisterUserDto.builder()
-                        .username(registerUserRequest.getUsername())
-                        .password(registerUserRequest.getPassword())
-                        .phone(registerUserRequest.getPhone())
-                        .email(registerUserRequest.getEmail())
-                        .build());
+        final String userId = arcusUserDubboService.registerUser(RegisterUserDto.builder()
+                .username(registerUserRequest.getUsername())
+                .password(registerUserRequest.getPassword())
+                .phone(registerUserRequest.getPhone())
+                .email(registerUserRequest.getEmail())
+                .build());
 
-
-        return Mono.just(ArcusRestResponseBody.success("user-id-12345"));
+        return Mono.just(ArcusRestResponseBody.success(userId));
     }
 }

@@ -39,6 +39,8 @@ Dubbo 是一个高性能的、基于 Java 的开源 RPC 框架。它为分布式
 ## 4. 基本配置
 在你的 `application.yaml` 或 `application.properties` 中：
 
+[官方配置文档](https://cn.dubbo.apache.org/zh-cn/overview/mannual/java-sdk/reference-manual/config/properties/)
+
 ```yaml
 # nacos/zookeeper 注册中心配置
 spring:
@@ -58,7 +60,12 @@ spring:
     protocol:
       name: dubbo
       port: 20880
-```
+      host: 10.31.202.215 # 避免dubbo 使用本地的vpn地址作为注册ip，手动指定一个
+    network:
+      interface:
+        ignored: # 忽略网卡端口
+        preferred: # 优先使用网卡端口
+``` 
 
 ## 5. 定义服务接口
 

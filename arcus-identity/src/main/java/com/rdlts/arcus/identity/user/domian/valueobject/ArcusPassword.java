@@ -21,7 +21,5 @@ public record ArcusPassword(@Nonnull String val) {
         if (val.length() < 8) {
             throw new IllegalArgumentException("Password must be at least 8 characters long");
         }
-
-
     }
 }

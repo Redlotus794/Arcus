@@ -28,8 +28,7 @@ public class PasswordEncryptionDomainService implements DomainService {
      * @throws RuntimeException 加密失败时抛出
      */
     @Nonnull
-    public static ArcusUserEncryptedPassword pbkdf2WithHmacSHA256(@Nonnull ArcusPassword password,
-                                                                  @Nonnull Pbkdf2Param pbkdf2Param) {
+    public ArcusUserEncryptedPassword pbkdf2WithHmacSHA256(@Nonnull ArcusPassword password, @Nonnull Pbkdf2Param pbkdf2Param) {
         Pbkdf2PasswordEncoder pbkdf2PasswordEncoder = new Pbkdf2PasswordEncoder(
                 "",
                 pbkdf2Param.salt().length(),

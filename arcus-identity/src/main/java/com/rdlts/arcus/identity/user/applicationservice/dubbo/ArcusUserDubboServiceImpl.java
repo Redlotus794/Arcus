@@ -3,6 +3,10 @@ package com.rdlts.arcus.identity.user.applicationservice.dubbo;
 import com.rdlts.arcus.identity.user.applicationservice.ArcusUserApplicationService;
 import com.rdlts.arcus.identity.user.applicationservice.command.CreateArcusUserCommand;
 import com.rdlts.arcus.identity.user.applicationservice.dubbo.dto.RegisterUserDto;
+import com.rdlts.arcus.identity.user.domian.valueobject.ArcusPassword;
+import com.rdlts.arcus.identity.user.domian.valueobject.ArcusProfile;
+import com.rdlts.arcus.identity.user.domian.valueobject.ArcusUserEmail;
+import com.rdlts.arcus.identity.user.domian.valueobject.ArcusUserId;
 import jakarta.annotation.Resource;
 import org.apache.dubbo.config.annotation.DubboService;
 import org.springframework.stereotype.Service;
@@ -22,22 +26,25 @@ public class ArcusUserDubboServiceImpl implements ArcusUserDubboService {
 
     @Override
     public String registerUser(RegisterUserDto registerUserDto) {
-        arcusUserApplicationService.createUser(new CreateArcusUserCommand() {
+        final ArcusUserId user = arcusUserApplicationService.createUser(new CreateArcusUserCommand() {
             @Override
-            public String username() {
-                return registerUserDto.getUsername();
+            public ArcusProfile profile() {
+                return ArcusProfile.builder()
+                        .username(registerUserDto.getUsername())
+                        .avatar(registerUserDto.getAvatar())
+                        .build();
             }
 
             @Override
-            public String password() {
-                return registerUserDto.getPassword();
+            public ArcusUserEmail arcusUserEmail() {
+                return new ArcusUserEmail(registerUserDto.getEmail());
             }
 
             @Override
-            public String email() {
-                return registerUserDto.getEmail();
+            public ArcusPassword newPassword() {
+                return new ArcusPassword(registerUserDto.getPassword());
             }
         });
-        return "abc";
+        return user.id();
     }
 }

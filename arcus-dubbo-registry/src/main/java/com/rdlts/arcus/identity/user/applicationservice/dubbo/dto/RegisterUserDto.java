@@ -29,4 +29,6 @@ public class RegisterUserDto implements Serializable {
     String email;
 
     String phone;
+
+    String avatar;
 }

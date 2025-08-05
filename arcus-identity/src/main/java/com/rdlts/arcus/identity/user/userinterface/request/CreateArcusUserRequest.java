@@ -1,6 +1,9 @@
 package com.rdlts.arcus.identity.user.userinterface.request;
 
 import com.rdlts.arcus.identity.user.applicationservice.command.CreateArcusUserCommand;
+import com.rdlts.arcus.identity.user.domian.valueobject.ArcusPassword;
+import com.rdlts.arcus.identity.user.domian.valueobject.ArcusProfile;
+import com.rdlts.arcus.identity.user.domian.valueobject.ArcusUserEmail;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotBlank;
 import lombok.*;
@@ -33,17 +36,17 @@ public class CreateArcusUserRequest implements CreateArcusUserCommand {
     String avatar;
 
     @Override
-    public String username() {
-        return this.username;
+    public ArcusProfile profile() {
+        return new ArcusProfile(username, avatar);
     }
 
     @Override
-    public String password() {
-        return this.password;
+    public ArcusUserEmail arcusUserEmail() {
+        return new ArcusUserEmail(this.email);
     }
 
     @Override
-    public String email() {
-        return this.email;
+    public ArcusPassword newPassword() {
+        return new ArcusPassword(this.password);
     }
 }
